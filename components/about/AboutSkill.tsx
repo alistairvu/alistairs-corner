@@ -7,7 +7,9 @@ type AboutSkillProps = {
 
 const AboutEducation = ({ data }: AboutSkillProps) => (
   <Box py={4}>
-    <Heading size="md">{data.title}</Heading>
+    <Heading size="md" mb={1}>
+      {data.title}
+    </Heading>
     <CommonMarkdown markdown={data.detail} />
   </Box>
 );

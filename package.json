@@ -16,7 +16,7 @@
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "@fontsource/hepta-slab": "^4.5.1",
-    "@fontsource/plus-jakarta-sans": "^4.5.0",
+    "@fontsource/inter": "^4.5.1",
     "chakra-ui-markdown-renderer": "^4.0.0",
     "framer-motion": "^5.6.0",
     "graphql": "^16.2.0",
