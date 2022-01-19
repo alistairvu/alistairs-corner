@@ -1,5 +1,6 @@
 import { Box, Heading, Link, Text } from '@chakra-ui/react';
 import NextImage from 'next/image';
+import imageStyles from '../../styles/project-card.module.css';
 
 type ProjectCardProps = {
   project: Project;
@@ -20,6 +21,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => (
         layout="responsive"
         src={project.image.url}
         alt={project.image.alt ?? 'Screenshot of project'}
+        className={imageStyles.image}
       />
     )}
     <Box p={4}>
