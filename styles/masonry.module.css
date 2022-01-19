@@ -1,0 +1,9 @@
+.grid {
+  display: flex;
+  width: auto;
+  margin-left: -10px;
+}
+
+.gridCol {
+  padding-left: 10px;
+}

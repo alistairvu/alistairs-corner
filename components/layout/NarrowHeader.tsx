@@ -9,21 +9,26 @@ import {
   DrawerCloseButton,
   DrawerContent,
   DrawerOverlay,
-  Input,
   DrawerHeader,
   Button,
 } from '@chakra-ui/react';
-import Link from 'next/link';
+import NextLink from 'next/link';
 import { HamburgerIcon } from '@chakra-ui/icons';
 
 const NarrowHeader = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <Flex align="center" py={2} px={4} shadow="md">
-      <Link href="/" passHref>
+    <Flex
+      align="center"
+      py={2}
+      px={4}
+      shadow="md"
+      backgroundColor="whiteAlpha.900"
+    >
+      <NextLink href="/" passHref>
         <Heading cursor="pointer">alistair&apos;s corner</Heading>
-      </Link>
+      </NextLink>
       <Spacer />
 
       <IconButton
@@ -42,11 +47,17 @@ const NarrowHeader = () => {
           </DrawerHeader>
 
           <DrawerBody>
-            <Link href="/" passHref>
+            <NextLink href="/" passHref>
               <Button variant="ghost" w="100%" fontSize="xl" my={2}>
                 Home
               </Button>
-            </Link>
+            </NextLink>
+
+            <NextLink href="/projects" passHref>
+              <Button variant="ghost" w="100%" fontSize="xl" my={2}>
+                Projects
+              </Button>
+            </NextLink>
           </DrawerBody>
         </DrawerContent>
       </Drawer>

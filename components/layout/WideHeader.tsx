@@ -1,15 +1,26 @@
-import { Flex, Spacer, Heading } from '@chakra-ui/react';
-import Link from 'next/link';
+import { Flex, Spacer, Heading, Box } from '@chakra-ui/react';
+import NextLink from 'next/link';
 
 const WideHeader = () => (
-  <Flex align="center" py={2} px={4} shadow="md">
-    <Link href="/" passHref>
+  <Flex
+    align="center"
+    py={2}
+    px={4}
+    shadow="md"
+    backgroundColor="whiteAlpha.900"
+  >
+    <NextLink href="/" passHref>
       <Heading cursor="pointer">alistair&apos;s corner</Heading>
-    </Link>
+    </NextLink>
     <Spacer />
 
     <Flex align="center">
-      <Link href="/">Home</Link>
+      <Box mx={2}>
+        <NextLink href="/">Home</NextLink>
+      </Box>
+      <Box mx={2}>
+        <NextLink href="/projects">Projects</NextLink>
+      </Box>
     </Flex>
   </Flex>
 );
