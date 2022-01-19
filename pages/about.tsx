@@ -2,7 +2,7 @@ import { GetStaticProps, NextPage } from 'next';
 import request from '../lib/datocms';
 import { Box, Heading, Text } from '@chakra-ui/react';
 import Head from 'next/head';
-import { AboutEducation } from '../components/about';
+import { AboutEducation, AboutSkill } from '../components/about';
 
 const AboutPage: NextPage<{ aboutPage: AboutPage }> = ({ aboutPage }) => (
   <>
@@ -18,12 +18,25 @@ const AboutPage: NextPage<{ aboutPage: AboutPage }> = ({ aboutPage }) => (
       </Heading>
       <Text fontSize="lg">{aboutPage.description}</Text>
 
-      <Box as="section" py={2}>
-        <Heading py={2} size="lg">
-          Education
-        </Heading>
+      <Box py={2}>
+        <hr />
+      </Box>
+
+      <Box as="section" py={1}>
+        <Heading size="lg">Education</Heading>
         {aboutPage.education.map((item) => (
           <AboutEducation key={item.id} data={item} />
+        ))}
+      </Box>
+
+      <Box py={2}>
+        <hr />
+      </Box>
+
+      <Box as="section" py={1}>
+        <Heading size="lg">Skills</Heading>
+        {aboutPage.skills.map((item) => (
+          <AboutSkill key={item.id} data={item} />
         ))}
       </Box>
     </main>
@@ -43,6 +56,11 @@ export const getStaticProps: GetStaticProps = async () => {
         }
         description(locale: en, markdown: false)
         heading
+        skills {
+          id
+          title
+          detail
+        }
       }
     }
     `,

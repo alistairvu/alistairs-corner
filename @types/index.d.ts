@@ -19,8 +19,15 @@ type Education = {
   description: string;
 };
 
+type Skill = {
+  id: string;
+  title: string;
+  detail: string;
+};
+
 type AboutPage = {
-  education: Array<Education>;
   heading: string;
   description: string;
+  education: Array<Education>;
+  skills: Array<Skill>;
 };
