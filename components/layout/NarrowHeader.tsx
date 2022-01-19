@@ -48,13 +48,37 @@ const NarrowHeader = () => {
 
           <DrawerBody>
             <NextLink href="/" passHref>
-              <Button variant="ghost" w="100%" fontSize="xl" my={2}>
+              <Button
+                variant="ghost"
+                w="100%"
+                fontSize="xl"
+                my={2}
+                onClick={onClose}
+              >
                 Home
               </Button>
             </NextLink>
 
+            <NextLink href="/about" passHref>
+              <Button
+                variant="ghost"
+                w="100%"
+                fontSize="xl"
+                my={2}
+                onClick={onClose}
+              >
+                About
+              </Button>
+            </NextLink>
+
             <NextLink href="/projects" passHref>
-              <Button variant="ghost" w="100%" fontSize="xl" my={2}>
+              <Button
+                variant="ghost"
+                w="100%"
+                fontSize="xl"
+                my={2}
+                onClick={onClose}
+              >
                 Projects
               </Button>
             </NextLink>

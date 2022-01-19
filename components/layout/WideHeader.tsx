@@ -18,6 +18,11 @@ const WideHeader = () => (
       <Box mx={2}>
         <NextLink href="/">Home</NextLink>
       </Box>
+
+      <Box mx={2}>
+        <NextLink href="/about">About</NextLink>
+      </Box>
+
       <Box mx={2}>
         <NextLink href="/projects">Projects</NextLink>
       </Box>
