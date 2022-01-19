@@ -1,6 +1,7 @@
 import type { AppProps } from 'next/app';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import '@fontsource/hepta-slab';
+import '@fontsource/plus-jakarta-sans';
 import Layout from '../components/layout/Layout';
 
 const theme = extendTheme({
@@ -18,6 +19,10 @@ const theme = extendTheme({
         fontFamily: 'Hepta Slab',
       },
     },
+  },
+  fonts: {
+    heading: 'Hepta Slab',
+    body: 'Plus Jakarta Sans',
   },
 });
 

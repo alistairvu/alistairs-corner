@@ -870,6 +870,11 @@
   resolved "https://registry.yarnpkg.com/@fontsource/hepta-slab/-/hepta-slab-4.5.1.tgz#a5191fe7898551b8ab164a9b2bdf999cd4204133"
   integrity sha512-wjNLN7wED5Nk5nSlUKTXJ6IyVqP+6fAmsw8mwRtrVxEy2h378w2ZzSHVf8CAiNz8MQzSUbZeM7nwU3gIk/YDMQ==
 
+"@fontsource/plus-jakarta-sans@^4.5.0":
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/plus-jakarta-sans/-/plus-jakarta-sans-4.5.0.tgz#79db20d5de22acc3312794f67d3ceffcb05b2f9f"
+  integrity sha512-PUVYjxqIXa8tf7VyQWnRP5FsGTwTlOlmHNrbF7UQ9UOd4c25X4VGkb2ZCZsJaPt6MECXIbJYwl49LLV6Kk6BHg==
+
 "@humanwhocodes/config-array@^0.9.2":
   version "0.9.2"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.9.2.tgz#68be55c737023009dfc5fe245d51181bb6476914"
