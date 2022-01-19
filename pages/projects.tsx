@@ -5,10 +5,10 @@ import ProjectCard from '../components/project/ProjectCard';
 import request from '../lib/datocms';
 
 type ProjectsPageProps = {
-  allProjects: Array<Project>;
+  projects: Array<Project>;
 };
 
-const Projects: NextPage<ProjectsPageProps> = ({ allProjects }) => {
+const Projects: NextPage<ProjectsPageProps> = ({ projects }) => {
   return (
     <>
       <Head>
@@ -20,7 +20,7 @@ const Projects: NextPage<ProjectsPageProps> = ({ allProjects }) => {
       <main>
         <Heading pb={2}>projects</Heading>
         <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} columnGap={2}>
-          {allProjects.map((project) => (
+          {projects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
         </SimpleGrid>
@@ -30,27 +30,28 @@ const Projects: NextPage<ProjectsPageProps> = ({ allProjects }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { allProjects } = await request({
+  const { projectPage } = await request({
     query: `{
-      allProjects {
-        id
-        title
-        image {
+      projectPage {
+        projects {
           id
-          url(imgixParams: {auto: format, q: 80, w: 800, h: 600})
-          alt
+          title
+          image {
+            id
+            url(imgixParams: {auto: format, q: 80, w: 800, h: 600})
+            alt
+          }
+          description
+          link
+          githubLink
         }
-        description
-        link
-        githubLink
-        _status
-        _firstPublishedAt
       }
     }
     `,
   });
 
-  return { props: { allProjects }, revalidate: 20 };
+  const { projects } = projectPage;
+  return { props: { projects }, revalidate: 20 };
 };
 
 export default Projects;
