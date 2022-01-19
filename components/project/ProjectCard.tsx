@@ -33,12 +33,12 @@ const ProjectCard = ({ project }: ProjectCardProps) => (
       {(project.link || project.githubLink) && (
         <Box mt={2}>
           {project.link && (
-            <Link href={project.link}>
+            <Link href={project.link} isExternal>
               <Text>Link</Text>
             </Link>
           )}
           {project.githubLink && (
-            <Link href={project.githubLink}>
+            <Link href={project.githubLink} isExternal>
               <Text>GitHub</Text>
             </Link>
           )}
