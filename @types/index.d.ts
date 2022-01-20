@@ -30,4 +30,5 @@ type AboutPage = {
   description: string;
   education: Array<Education>;
   skills: Array<Skill>;
+  keywords: string;
 };
