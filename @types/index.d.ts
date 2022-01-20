@@ -1,3 +1,9 @@
+type SEOAttribute = {
+  attributes: any;
+  content: string | null;
+  tag: any;
+};
+
 type Project = {
   id: string;
   title: string;
@@ -31,4 +37,11 @@ type AboutPage = {
   education: Array<Education>;
   skills: Array<Skill>;
   keywords: string;
+  seo: SEOAttribute[];
+};
+
+type ProjectPage = {
+  projects: Array<Project>;
+  keywords: string;
+  seo: SEOAttribute[];
 };

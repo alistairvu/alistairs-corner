@@ -3,26 +3,21 @@ import { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import ProjectCard from '../components/project/ProjectCard';
 import request from '../lib/datocms';
+import { renderMetaTags } from 'react-datocms';
 
-type ProjectsPageProps = {
-  projects: Array<Project>;
-  keywords: string;
-};
-
-const Projects: NextPage<ProjectsPageProps> = ({ projects, keywords }) => {
+const Projects: NextPage<{ projectPage: ProjectPage }> = ({ projectPage }) => {
   return (
     <>
       <Head>
-        <title>projects | alistair&apos;s corner</title>
-        <meta name="description" content="Projects built by Alistair" />
-        <meta name="keywords" content={keywords} />
+        {renderMetaTags(projectPage.seo)}
+        <meta name="keywords" content={projectPage.keywords} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
         <Heading pb={2}>projects</Heading>
         <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} columnGap={2}>
-          {projects.map((project) => (
+          {projectPage.projects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
         </SimpleGrid>
@@ -48,13 +43,18 @@ export const getStaticProps: GetStaticProps = async () => {
           githubLink
         }
         keywords
+        seo: _seoMetaTags {
+          attributes
+          content
+          tag
+        }
       }
     }
     `,
+    preview: process.env.NODE_ENV === 'development',
   });
 
-  const { projects, keywords } = projectPage;
-  return { props: { projects, keywords }, revalidate: 20 };
+  return { props: { projectPage }, revalidate: 20 };
 };
 
 export default Projects;

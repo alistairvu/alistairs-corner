@@ -3,12 +3,12 @@ import request from '../lib/datocms';
 import { Box, Divider, Heading, Text } from '@chakra-ui/react';
 import Head from 'next/head';
 import { AboutEducation, AboutSkill } from '../components/about';
+import { renderMetaTags } from 'react-datocms';
 
 const AboutPage: NextPage<{ aboutPage: AboutPage }> = ({ aboutPage }) => (
   <>
     <Head>
-      <title>about | alistair&apos;s corner</title>
-      <meta name="description" content={aboutPage.description} />
+      {renderMetaTags(aboutPage.seo)}
       <meta name="keywords" content={aboutPage.keywords} />
       <link rel="icon" href="/favicon.ico" />
     </Head>
@@ -63,9 +63,15 @@ export const getStaticProps: GetStaticProps = async () => {
           detail
         }
         keywords
+        seo: _seoMetaTags {
+          attributes
+          content
+          tag
+        }
       }
     }
     `,
+    preview: process.env.NODE_ENV === 'development',
   });
 
   return { props: { aboutPage }, revalidate: 20 };
