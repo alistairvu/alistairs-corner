@@ -16,8 +16,8 @@ const ProjectCard = ({ project }: ProjectCardProps) => (
   >
     {project.image.url && (
       <NextImage
-        width="1200px"
-        height="608px"
+        width="900px"
+        height="456px"
         layout="responsive"
         src={project.image.url}
         alt={project.image.alt ?? 'Screenshot of project'}
