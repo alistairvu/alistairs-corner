@@ -9,7 +9,7 @@ const AboutEducation = ({ data }: AboutEducationProps) => (
   <Box py={4}>
     <Heading size="md">{data.title}</Heading>
     <Text fontSize="lg">{data.program}</Text>
-    <Text color="gray.500">{data.timespan}</Text>
+    <Text color="gray.600">{data.timespan}</Text>
 
     <CommonMarkdown markdown={data.description} />
   </Box>

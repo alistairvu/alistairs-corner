@@ -38,7 +38,7 @@ export const getStaticProps: GetStaticProps = async () => {
           title
           image {
             id
-            url(imgixParams: {auto: format, q: 80, w: 800, h: 600})
+            url(imgixParams: {auto: format, q: 80, w: 1350, h: 676})
             alt
           }
           description
