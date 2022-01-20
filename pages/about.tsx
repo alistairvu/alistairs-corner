@@ -1,6 +1,6 @@
 import { GetStaticProps, NextPage } from 'next';
 import request from '../lib/datocms';
-import { Box, Heading, Text } from '@chakra-ui/react';
+import { Box, Divider, Heading, Text } from '@chakra-ui/react';
 import Head from 'next/head';
 import { AboutEducation, AboutSkill } from '../components/about';
 
@@ -18,8 +18,8 @@ const AboutPage: NextPage<{ aboutPage: AboutPage }> = ({ aboutPage }) => (
       </Heading>
       <Text fontSize="lg">{aboutPage.description}</Text>
 
-      <Box py={2}>
-        <hr />
+      <Box my={2}>
+        <Divider w="50%" borderColor="gray.400" />
       </Box>
 
       <Box as="section" py={1}>
@@ -29,8 +29,8 @@ const AboutPage: NextPage<{ aboutPage: AboutPage }> = ({ aboutPage }) => (
         ))}
       </Box>
 
-      <Box py={2}>
-        <hr />
+      <Box my={2}>
+        <Divider w="50%" borderColor="gray.400" />
       </Box>
 
       <Box as="section" py={1}>

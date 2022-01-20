@@ -1,4 +1,4 @@
-import { Box, Heading, Link, Text } from '@chakra-ui/react';
+import { Box, Divider, Heading, Link, Text } from '@chakra-ui/react';
 import NextImage from 'next/image';
 import imageStyles from '../../styles/project-card.module.css';
 
@@ -11,7 +11,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => (
     borderRadius="md"
     shadow="sm"
     borderWidth={1}
-    borderColor="gray.10"
+    borderColor="gray.200"
     my={2}
   >
     {project.image.url && (
@@ -32,8 +32,8 @@ const ProjectCard = ({ project }: ProjectCardProps) => (
 
       {(project.link || project.githubLink) && (
         <>
-          <Box my={4}>
-            <hr />
+          <Box my={2}>
+            <Divider w="50%" borderColor="gray.400" />
           </Box>
           <Box>
             {project.link && (
