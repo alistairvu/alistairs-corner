@@ -1,4 +1,4 @@
-import { Flex, Spacer, Heading, Box, Link } from '@chakra-ui/react';
+import { Flex, Spacer, Heading, Box, Link, Text } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import SITE_MAP from '../../constants/siteMap';
 
@@ -18,9 +18,17 @@ const WideHeader = () => (
     <Flex align="center">
       {SITE_MAP.map((site) => (
         <Box mx={2} key={site.link}>
-          <Link as={NextLink} href={site.link} fontWeight="bold">
-            {site.title}
-          </Link>
+          <NextLink href={site.link} passHref>
+            <Link>
+              <Text
+                _hover={{
+                  textDecoration: 'underline',
+                }}
+              >
+                {site.title}
+              </Text>
+            </Link>
+          </NextLink>
         </Box>
       ))}
     </Flex>
