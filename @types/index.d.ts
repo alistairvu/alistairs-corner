@@ -1,3 +1,8 @@
+type SiteItem = {
+  link: string;
+  title: string;
+};
+
 type SEOAttribute = {
   attributes: any;
   content: string | null;

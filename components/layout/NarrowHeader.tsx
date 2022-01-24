@@ -14,6 +14,7 @@ import {
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import { HamburgerIcon } from '@chakra-ui/icons';
+import SITE_MAP from '../../constants/siteMap';
 
 const NarrowHeader = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -47,41 +48,19 @@ const NarrowHeader = () => {
           </DrawerHeader>
 
           <DrawerBody>
-            <NextLink href="/" passHref>
-              <Button
-                variant="ghost"
-                w="100%"
-                fontSize="xl"
-                my={2}
-                onClick={onClose}
-              >
-                Home
-              </Button>
-            </NextLink>
-
-            <NextLink href="/about" passHref>
-              <Button
-                variant="ghost"
-                w="100%"
-                fontSize="xl"
-                my={2}
-                onClick={onClose}
-              >
-                About
-              </Button>
-            </NextLink>
-
-            <NextLink href="/projects" passHref>
-              <Button
-                variant="ghost"
-                w="100%"
-                fontSize="xl"
-                my={2}
-                onClick={onClose}
-              >
-                Projects
-              </Button>
-            </NextLink>
+            {SITE_MAP.map((site) => (
+              <NextLink href={site.link} key={site.link} passHref>
+                <Button
+                  variant="ghost"
+                  w="100%"
+                  fontSize="xl"
+                  my={2}
+                  onClick={onClose}
+                >
+                  {site.title}
+                </Button>
+              </NextLink>
+            ))}
           </DrawerBody>
         </DrawerContent>
       </Drawer>

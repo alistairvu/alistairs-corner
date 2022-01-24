@@ -17,7 +17,7 @@ const AboutPage: NextPage<{ aboutPage: AboutPage }> = ({ aboutPage }) => (
       <Heading pb={2} size="2xl">
         {aboutPage.heading}
       </Heading>
-      <Text fontSize="lg">{aboutPage.description}</Text>
+      <Text fontSize="xl">{aboutPage.description}</Text>
 
       <Box my={2}>
         <Divider w="50%" borderColor="gray.400" />

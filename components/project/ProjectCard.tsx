@@ -1,3 +1,4 @@
+import { ExternalLinkIcon } from '@chakra-ui/icons';
 import { Box, Divider, Heading, Link, Text } from '@chakra-ui/react';
 import NextImage from 'next/image';
 import imageStyles from '../../styles/project-card.module.css';
@@ -25,7 +26,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => (
       />
     )}
     <Box p={4}>
-      <Heading size="md" pb={2}>
+      <Heading size="md" pb={2} fontWeight="600">
         {project.title}
       </Heading>
       <Text>{project.description}</Text>
@@ -38,12 +39,18 @@ const ProjectCard = ({ project }: ProjectCardProps) => (
           <Box>
             {project.link && (
               <Link href={project.link} isExternal>
-                <Text>Link</Text>
+                <Text>
+                  Link
+                  <ExternalLinkIcon mx="4px" mb="4px" />
+                </Text>
               </Link>
             )}
             {project.githubLink && (
               <Link href={project.githubLink} isExternal>
-                <Text>GitHub</Text>
+                <Text>
+                  GitHub
+                  <ExternalLinkIcon mx="4px" mb="4px" />
+                </Text>
               </Link>
             )}
           </Box>

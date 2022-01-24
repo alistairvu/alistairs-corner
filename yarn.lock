@@ -865,15 +865,15 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fontsource/hepta-slab@^4.5.1":
+"@fontsource/source-sans-pro@^4.5.1":
   version "4.5.1"
-  resolved "https://registry.yarnpkg.com/@fontsource/hepta-slab/-/hepta-slab-4.5.1.tgz#a5191fe7898551b8ab164a9b2bdf999cd4204133"
-  integrity sha512-wjNLN7wED5Nk5nSlUKTXJ6IyVqP+6fAmsw8mwRtrVxEy2h378w2ZzSHVf8CAiNz8MQzSUbZeM7nwU3gIk/YDMQ==
+  resolved "https://registry.yarnpkg.com/@fontsource/source-sans-pro/-/source-sans-pro-4.5.1.tgz#9c4f2b6061d38cd85e89fde21893e23b8a7f227c"
+  integrity sha512-JYEldSfnqxoDVUL6QgqT8Fiyjh0p7WlKcqKNevzDylpWabdejVRyFzPhTk2ZceKZd02KEOaL+K462U6u0/PQiA==
 
-"@fontsource/inter@^4.5.1":
-  version "4.5.1"
-  resolved "https://registry.yarnpkg.com/@fontsource/inter/-/inter-4.5.1.tgz#058d8a02354f3c78e369d452c15d33557ec1b705"
-  integrity sha512-mvtOvXNNVLlF1p/UbLgLrmz2RCOl6Ow+TqyiK10SosoLKX7edsXYiHFHb7XIZdjII6F2sJVPPsJXWhBnbXT2DQ==
+"@fontsource/source-serif-pro@^4.5.0":
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/source-serif-pro/-/source-serif-pro-4.5.0.tgz#5c348a1d6e7b4f4db23764842e89ccac48cfc3f6"
+  integrity sha512-v42UCl87ao3+IxNGLy4ZzoUrRoPlLpqIrUXy5RYj8/bupnLYAEjesc7nFDLEkvzzgZQDFUEW8ljpNL1n9ehmAg==
 
 "@humanwhocodes/config-array@^0.9.2":
   version "0.9.2"

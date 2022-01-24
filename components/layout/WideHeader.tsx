@@ -1,5 +1,6 @@
-import { Flex, Spacer, Heading, Box } from '@chakra-ui/react';
+import { Flex, Spacer, Heading, Box, Link } from '@chakra-ui/react';
 import NextLink from 'next/link';
+import SITE_MAP from '../../constants/siteMap';
 
 const WideHeader = () => (
   <Flex
@@ -15,17 +16,13 @@ const WideHeader = () => (
     <Spacer />
 
     <Flex align="center">
-      <Box mx={2}>
-        <NextLink href="/">Home</NextLink>
-      </Box>
-
-      <Box mx={2}>
-        <NextLink href="/about">About</NextLink>
-      </Box>
-
-      <Box mx={2}>
-        <NextLink href="/projects">Projects</NextLink>
-      </Box>
+      {SITE_MAP.map((site) => (
+        <Box mx={2} key={site.link}>
+          <Link as={NextLink} href={site.link} fontWeight="bold">
+            {site.title}
+          </Link>
+        </Box>
+      ))}
     </Flex>
   </Flex>
 );

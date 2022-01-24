@@ -1,8 +1,8 @@
 import type { AppProps } from 'next/app';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
-import '@fontsource/hepta-slab/600.css';
-import '@fontsource/inter/400.css';
-import '@fontsource/inter/variable.css';
+import '@fontsource/source-sans-pro';
+import '@fontsource/source-serif-pro/600.css';
+import '@fontsource/source-serif-pro/700.css';
 import Layout from '../components/layout/Layout';
 
 const theme = extendTheme({
@@ -16,14 +16,13 @@ const theme = extendTheme({
 
     Heading: {
       baseStyle: {
-        fontWeight: 600,
-        fontFamily: 'Hepta Slab',
+        fontWeight: 700,
       },
     },
   },
   fonts: {
-    heading: 'Hepta Slab, serif',
-    body: 'InterVariable, Inter, sans-serif',
+    heading: 'Source Serif Pro, serif',
+    body: 'Source Sans Pro, sans-serif',
   },
 });
 

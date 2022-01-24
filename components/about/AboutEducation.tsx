@@ -7,7 +7,9 @@ type AboutEducationProps = {
 
 const AboutEducation = ({ data }: AboutEducationProps) => (
   <Box py={4}>
-    <Heading size="md">{data.title}</Heading>
+    <Heading size="md" fontWeight="600">
+      {data.title}
+    </Heading>
     <Text fontSize="lg">{data.program}</Text>
     <Text color="gray.600">{data.timespan}</Text>
 
