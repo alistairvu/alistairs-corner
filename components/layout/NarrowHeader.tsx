@@ -4,12 +4,6 @@ import {
   Heading,
   IconButton,
   useDisclosure,
-  Drawer,
-  DrawerBody,
-  DrawerCloseButton,
-  DrawerContent,
-  DrawerOverlay,
-  DrawerHeader,
   Button,
   Box,
   Collapse,
@@ -25,7 +19,9 @@ const NarrowHeader = () => {
     <Box shadow="md" backgroundColor="whiteAlpha.900">
       <Flex align="center" py={2} px={4}>
         <NextLink href="/" passHref>
-          <Heading cursor="pointer">alistair&apos;s corner</Heading>
+          <Heading cursor="pointer" onClick={onClose}>
+            alistair&apos;s corner
+          </Heading>
         </NextLink>
         <Spacer />
 
@@ -37,7 +33,11 @@ const NarrowHeader = () => {
           variant="ghost"
           backgroundColor="whiteAlpha.100"
           onClick={() => {
-            isOpen ? onClose() : onOpen();
+            if (isOpen) {
+              onClose();
+            } else {
+              onOpen();
+            }
           }}
         />
       </Flex>

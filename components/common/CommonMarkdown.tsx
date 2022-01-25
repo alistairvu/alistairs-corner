@@ -6,7 +6,7 @@ const newTheme = {
   p: (props: any) => {
     const { children } = props;
     return (
-      <Text mb={2} fontSize={'12px'}>
+      <Text mb={2} fontSize="12px">
         {children}
       </Text>
     );

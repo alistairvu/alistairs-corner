@@ -1,15 +1,14 @@
 import { Heading, SimpleGrid } from '@chakra-ui/react';
 import { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
+import { renderMetaTags } from 'react-datocms';
 import ProjectCard from '../components/project/ProjectCard';
 import request from '../lib/datocms';
-import { renderMetaTags } from 'react-datocms';
 
 const Projects: NextPage<{ projectPage: ProjectPage; site: Site }> = ({
   projectPage,
   site,
-}) => {
-  return (
+}) => (
     <>
       <Head>
         {renderMetaTags(projectPage.seo.concat(site.favicon))}
@@ -28,7 +27,6 @@ const Projects: NextPage<{ projectPage: ProjectPage; site: Site }> = ({
       </main>
     </>
   );
-};
 
 export const getStaticProps: GetStaticProps = async () => {
   const { projectPage, site } = await request({

@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-head-element */
-/* eslint-disable react/no-invalid-html-attribute */
 import NextDocument, { Html, Head, Main, NextScript } from 'next/document';
 
 export default class Document extends NextDocument {

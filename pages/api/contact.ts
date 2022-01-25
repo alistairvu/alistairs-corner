@@ -27,7 +27,7 @@ const sendContactInformation = async (
       }),
       method: 'POST',
     }
-  ).then((res) => res.json());
+  ).then((apiRes) => apiRes.json());
 
   if (data.error) {
     return res.send({ success: false, error: data.error });

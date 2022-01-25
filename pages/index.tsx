@@ -7,17 +7,15 @@ import request from '../lib/datocms';
 const Home: NextPage<{ homePage: HomePage; site: Site }> = ({
   homePage,
   site,
-}) => {
-  return (
-    <>
-      <Head>{renderMetaTags(homePage.seo.concat(site.favicon))}</Head>
+}) => (
+  <>
+    <Head>{renderMetaTags(homePage.seo.concat(site.favicon))}</Head>
 
-      <main>
-        <Heading>{homePage.heading}</Heading>
-      </main>
-    </>
-  );
-};
+    <main>
+      <Heading>{homePage.heading}</Heading>
+    </main>
+  </>
+);
 
 export const getStaticProps: GetStaticProps = async () => {
   const { homePage, site } = await request({

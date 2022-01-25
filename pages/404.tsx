@@ -7,20 +7,18 @@ import request from '../lib/datocms';
 const NotFound: NextPage<{ notFoundPage: NotFoundPage; site: Site }> = ({
   notFoundPage,
   site,
-}) => {
-  return (
-    <>
-      <Head>{renderMetaTags(notFoundPage.seo.concat(site.favicon))}</Head>
+}) => (
+  <>
+    <Head>{renderMetaTags(notFoundPage.seo.concat(site.favicon))}</Head>
 
-      <main>
-        <Heading pb={2} size="2xl">
-          {notFoundPage.heading}
-        </Heading>
-        <Text fontSize="xl">{notFoundPage.description}</Text>
-      </main>
-    </>
-  );
-};
+    <main>
+      <Heading pb={2} size="2xl">
+        {notFoundPage.heading}
+      </Heading>
+      <Text fontSize="xl">{notFoundPage.description}</Text>
+    </main>
+  </>
+);
 
 export const getStaticProps: GetStaticProps = async () => {
   const { notFoundPage, site } = await request({

@@ -14,8 +14,8 @@ import Head from 'next/head';
 import { useForm } from 'react-hook-form';
 import { validate as validateEmail } from 'isemail';
 import { useState } from 'react';
-import request from '../lib/datocms';
 import { renderMetaTags } from 'react-datocms';
+import request from '../lib/datocms';
 
 const ContactPage: NextPage<{ contactPage: ContactPage; site: Site }> = ({
   contactPage,

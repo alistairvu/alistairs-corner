@@ -1,9 +1,9 @@
 import { GetStaticProps, NextPage } from 'next';
-import request from '../lib/datocms';
 import { Box, Divider, Heading, Text } from '@chakra-ui/react';
 import Head from 'next/head';
-import { AboutEducation, AboutSkill } from '../components/about';
 import { renderMetaTags } from 'react-datocms';
+import { AboutEducation, AboutSkill } from '../components/about';
+import request from '../lib/datocms';
 
 const AboutPage: NextPage<{ aboutPage: AboutPage; site: Site }> = ({
   aboutPage,
