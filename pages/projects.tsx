@@ -9,24 +9,24 @@ const Projects: NextPage<{ projectPage: ProjectPage; site: Site }> = ({
   projectPage,
   site,
 }) => (
-    <>
-      <Head>
-        {renderMetaTags(projectPage.seo.concat(site.favicon))}
-        <meta name="keywords" content={projectPage.keywords} />
-      </Head>
+  <>
+    <Head>
+      {renderMetaTags(projectPage.seo.concat(site.favicon))}
+      <meta name="keywords" content={projectPage.keywords} />
+    </Head>
 
-      <main>
-        <Heading pb={2} size="2xl">
-          projects
-        </Heading>
-        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} columnGap={2}>
-          {projectPage.projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </SimpleGrid>
-      </main>
-    </>
-  );
+    <main>
+      <Heading pb={2} size="2xl">
+        projects
+      </Heading>
+      <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} columnGap={2}>
+        {projectPage.projects.map((project) => (
+          <ProjectCard key={project.id} project={project} />
+        ))}
+      </SimpleGrid>
+    </main>
+  </>
+);
 
 export const getStaticProps: GetStaticProps = async () => {
   const { projectPage, site } = await request({

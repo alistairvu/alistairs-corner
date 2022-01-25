@@ -33,11 +33,11 @@ const theme = extendTheme({
 });
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
-    <ChakraProvider theme={theme}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </ChakraProvider>
-  )
+  <ChakraProvider theme={theme}>
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  </ChakraProvider>
+);
 
 export default MyApp;
