@@ -10,7 +10,6 @@ const sendContactInformation = async (
   res: NextApiResponse<Data>
 ) => {
   const contactInformation = req.body;
-  console.log(contactInformation);
 
   const data = await fetch(
     `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE}/contact`,
