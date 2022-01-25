@@ -5,17 +5,21 @@ import ProjectCard from '../components/project/ProjectCard';
 import request from '../lib/datocms';
 import { renderMetaTags } from 'react-datocms';
 
-const Projects: NextPage<{ projectPage: ProjectPage }> = ({ projectPage }) => {
+const Projects: NextPage<{ projectPage: ProjectPage; site: Site }> = ({
+  projectPage,
+  site,
+}) => {
   return (
     <>
       <Head>
-        {renderMetaTags(projectPage.seo)}
+        {renderMetaTags(projectPage.seo.concat(site.favicon))}
         <meta name="keywords" content={projectPage.keywords} />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <Heading pb={2}>projects</Heading>
+        <Heading pb={2} size="2xl">
+          projects
+        </Heading>
         <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} columnGap={2}>
           {projectPage.projects.map((project) => (
             <ProjectCard key={project.id} project={project} />
@@ -27,7 +31,7 @@ const Projects: NextPage<{ projectPage: ProjectPage }> = ({ projectPage }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { projectPage } = await request({
+  const { projectPage, site } = await request({
     query: `{
       projectPage {
         projects {
@@ -49,12 +53,19 @@ export const getStaticProps: GetStaticProps = async () => {
           tag
         }
       }
+      site: _site {
+        favicon: faviconMetaTags {
+          attributes
+          content
+          tag
+        }
+      }
     }
     `,
     preview: process.env.NODE_ENV === 'development',
   });
 
-  return { props: { projectPage }, revalidate: 20 };
+  return { props: { projectPage, site }, revalidate: 20 };
 };
 
 export default Projects;

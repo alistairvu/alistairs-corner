@@ -5,12 +5,14 @@ import Head from 'next/head';
 import { AboutEducation, AboutSkill } from '../components/about';
 import { renderMetaTags } from 'react-datocms';
 
-const AboutPage: NextPage<{ aboutPage: AboutPage }> = ({ aboutPage }) => (
+const AboutPage: NextPage<{ aboutPage: AboutPage; site: Site }> = ({
+  aboutPage,
+  site,
+}) => (
   <>
     <Head>
-      {renderMetaTags(aboutPage.seo)}
+      {renderMetaTags(aboutPage.seo.concat(site.favicon))}
       <meta name="keywords" content={aboutPage.keywords} />
-      <link rel="icon" href="/favicon.ico" />
     </Head>
 
     <main>
@@ -45,7 +47,7 @@ const AboutPage: NextPage<{ aboutPage: AboutPage }> = ({ aboutPage }) => (
 );
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { aboutPage } = await request({
+  const { aboutPage, site } = await request({
     query: `{
       aboutPage {
         education {
@@ -69,12 +71,19 @@ export const getStaticProps: GetStaticProps = async () => {
           tag
         }
       }
+      site: _site {
+        favicon: faviconMetaTags {
+          attributes
+          content
+          tag
+        }
+      }
     }
     `,
     preview: process.env.NODE_ENV === 'development',
   });
 
-  return { props: { aboutPage }, revalidate: 20 };
+  return { props: { aboutPage, site }, revalidate: 20 };
 };
 
 export default AboutPage;

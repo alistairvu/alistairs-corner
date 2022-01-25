@@ -11,6 +11,10 @@ const SITE_MAP: SiteItem[] = [
     link: '/projects',
     title: 'projects',
   },
+  {
+    link: '/contact',
+    title: 'contact',
+  },
 ];
 
 export default SITE_MAP;

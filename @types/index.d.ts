@@ -50,3 +50,27 @@ type ProjectPage = {
   keywords: string;
   seo: SEOAttribute[];
 };
+
+type ContactFormInput = {
+  name: string;
+  email: string;
+  message: string;
+};
+
+type ContactPage = {
+  heading: string;
+  successHeading: string;
+  successDescription: string;
+  errorHeading: string;
+  errorDescription: string;
+  seo: SEOAttribute[];
+};
+
+type Site = {
+  favicon: SEOAttribute[];
+};
+
+type HomePage = {
+  heading: string;
+  seo: SEOAttribute[];
+};

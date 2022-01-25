@@ -19,6 +19,12 @@ const theme = extendTheme({
         fontWeight: 700,
       },
     },
+
+    Button: {
+      baseStyle: {
+        fontFamily: 'Source Serif Pro, serif',
+      },
+    },
   },
   fonts: {
     heading: 'Source Serif Pro, serif',
