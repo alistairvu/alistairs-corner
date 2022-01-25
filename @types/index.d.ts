@@ -74,3 +74,9 @@ type HomePage = {
   heading: string;
   seo: SEOAttribute[];
 };
+
+type NotFoundPage = {
+  heading: string;
+  description: string;
+  seo: SEOAttribute[];
+};
