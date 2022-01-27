@@ -52,7 +52,7 @@ const NarrowHeader = () => {
           direction="column"
           flex="1"
           w="100%"
-          h="80vh"
+          h="60vh"
           justify="center"
           align="center"
         >
@@ -62,16 +62,10 @@ const NarrowHeader = () => {
                 <Button
                   variant="ghost"
                   w="100%"
-                  p={10}
+                  p={5}
                   fontSize="4xl"
-                  my={10}
+                  my={5}
                   onClick={onClose}
-                  whileHover={{
-                    scale: 1.1,
-                    transformation: {
-                      duration: 1,
-                    },
-                  }}
                 >
                   {site.title}
                 </Button>
