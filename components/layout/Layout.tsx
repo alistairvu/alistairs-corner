@@ -1,10 +1,11 @@
 import { Box, Container } from '@chakra-ui/react';
 import NarrowHeader from './NarrowHeader';
 import WideHeader from './WideHeader';
+import navStyles from '../../styles/header.module.css';
 
 const Layout: React.FC = ({ children }) => (
   <>
-    <nav style={{ position: 'sticky', top: 0, zIndex: 999 }}>
+    <nav className={navStyles.nav}>
       <Box display={{ base: 'none', md: 'block' }}>
         <WideHeader />
       </Box>
@@ -13,7 +14,7 @@ const Layout: React.FC = ({ children }) => (
       </Box>
     </nav>
 
-    <main style={{ paddingTop: 20, paddingBottom: 40, minHeight: '95vh' }}>
+    <main style={{ paddingTop: '5em', paddingBottom: 40, minHeight: '95vh' }}>
       <Container>{children}</Container>
     </main>
   </>

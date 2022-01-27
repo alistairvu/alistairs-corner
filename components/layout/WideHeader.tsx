@@ -3,13 +3,7 @@ import NextLink from 'next/link';
 import SITE_MAP from '../../constants/siteMap';
 
 const WideHeader = () => (
-  <Flex
-    align="center"
-    py={2}
-    px={4}
-    shadow="md"
-    backgroundColor="whiteAlpha.900"
-  >
+  <Flex align="center" py={2} px={4} backgroundColor="white" shadow="md">
     <NextLink href="/" passHref>
       <Heading cursor="pointer">alistair&apos;s corner</Heading>
     </NextLink>

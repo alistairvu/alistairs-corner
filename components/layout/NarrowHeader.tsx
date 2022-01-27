@@ -16,7 +16,7 @@ const NarrowHeader = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <Box shadow="md" backgroundColor="whiteAlpha.900">
+    <Box className="container" backgroundColor="white" shadow="md">
       <Flex align="center" py={2} px={4}>
         <NextLink href="/" passHref>
           <Heading cursor="pointer" onClick={onClose}>
