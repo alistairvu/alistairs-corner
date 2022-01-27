@@ -26,8 +26,8 @@ const NarrowHeader = ({ isOpen, onOpen, onClose }: NarrowHeaderProps) => (
   >
     <Flex align="center" py={2} px={4}>
       <NextLink href="/" passHref>
-        <Heading cursor="pointer" onClick={onClose}>
-          alistair&apos;s corner
+        <Heading cursor="pointer" onClick={onClose} px={4}>
+          a
         </Heading>
       </NextLink>
       <Spacer />
@@ -36,6 +36,7 @@ const NarrowHeader = ({ isOpen, onOpen, onClose }: NarrowHeaderProps) => (
         icon={
           isOpen ? <CloseIcon h={4} w={4} /> : <HamburgerIcon h={6} w={6} />
         }
+        mx={4}
         aria-label="menu"
         variant="ghost"
         backgroundColor="whiteAlpha.100"

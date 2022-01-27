@@ -45,8 +45,12 @@ const HomeBanner = ({
           direction="column"
           flexShrink="1"
         >
-          <Heading>{title}</Heading>
-          <Text textAlign="center">{subtitle}</Text>
+          <Heading fontSize="3xl">{title}</Heading>
+
+          <Text textAlign="center" py={2} fontSize="lg" px={4}>
+            {subtitle}
+          </Text>
+
           {link && (
             <a href={link} target="_blank" rel="noopener noreferrer">
               <Button
@@ -63,6 +67,7 @@ const HomeBanner = ({
             </a>
           )}
         </Flex>
+
         <Box
           w="100%"
           textAlign="center"

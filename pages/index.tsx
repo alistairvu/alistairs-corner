@@ -2,6 +2,7 @@ import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import { renderMetaTags } from 'react-datocms';
 import HomeBanner from '../components/home/HomeBanner';
+import HomeIntro from '../components/home/HomeIntro';
 import request from '../lib/datocms';
 
 const Home: NextPage<{ homePage: HomePage; site: Site }> = ({
@@ -12,6 +13,7 @@ const Home: NextPage<{ homePage: HomePage; site: Site }> = ({
     <Head>{renderMetaTags(homePage.seo.concat(site.favicon))}</Head>
 
     <main>
+      <HomeIntro greeting={homePage.greeting} subtitle={homePage.subtitle} />
       {homePage.bannerProjects.map((project, index) => (
         <HomeBanner key={project.id} isEven={index % 2 !== 0} {...project} />
       ))}
@@ -48,6 +50,8 @@ export const getStaticProps: GetStaticProps = async () => {
           textLight
           id
         }
+        greeting
+        subtitle
       }
     }
     `,

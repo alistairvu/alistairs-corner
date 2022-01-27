@@ -86,6 +86,8 @@ type HomePage = {
   heading: string;
   bannerProjects: BannerProject[];
   seo: SEOAttribute[];
+  greeting: string;
+  subtitle: string;
 };
 
 type NotFoundPage = {
