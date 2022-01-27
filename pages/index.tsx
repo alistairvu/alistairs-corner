@@ -13,7 +13,7 @@ const Home: NextPage<{ homePage: HomePage; site: Site }> = ({
 
     <main>
       {homePage.bannerProjects.map((project, index) => (
-        <HomeBanner isEven={index % 2 !== 0} {...project} key={project.id} />
+        <HomeBanner key={project.id} isEven={index % 2 !== 0} {...project} />
       ))}
     </main>
   </>
@@ -46,6 +46,7 @@ export const getStaticProps: GetStaticProps = async () => {
             url(imgixParams: {auto: format, q: 90, w: 1350, h: 676})
           }
           textLight
+          id
         }
       }
     }
