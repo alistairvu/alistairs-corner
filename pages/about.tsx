@@ -15,7 +15,7 @@ const AboutPage: NextPage<{ aboutPage: AboutPage; site: Site }> = ({
       <meta name="keywords" content={aboutPage.keywords} />
     </Head>
 
-    <Container py={5}>
+    <Container py={8}>
       <Heading pb={2} size="2xl">
         {aboutPage.heading}
       </Heading>

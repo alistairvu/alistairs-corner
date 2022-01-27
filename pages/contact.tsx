@@ -46,7 +46,7 @@ const ContactPage: NextPage<{ contactPage: ContactPage; site: Site }> = ({
   };
 
   return (
-    <Container py={5}>
+    <Container py={8}>
       <Head>{renderMetaTags(contactPage.seo.concat(site.favicon))}</Head>
 
       <Heading as="h1" size="2xl" pb={2}>

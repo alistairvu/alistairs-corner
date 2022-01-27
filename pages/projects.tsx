@@ -15,7 +15,7 @@ const Projects: NextPage<{ projectPage: ProjectPage; site: Site }> = ({
       <meta name="keywords" content={projectPage.keywords} />
     </Head>
 
-    <Container py={5}>
+    <Container py={8}>
       <Heading pb={2} size="2xl">
         projects
       </Heading>

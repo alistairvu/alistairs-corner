@@ -11,7 +11,7 @@ const NotFound: NextPage<{ notFoundPage: NotFoundPage; site: Site }> = ({
   <>
     <Head>{renderMetaTags(notFoundPage.seo.concat(site.favicon))}</Head>
 
-    <Container py={5}>
+    <Container py={8}>
       <Heading pb={2} size="2xl">
         {notFoundPage.heading}
       </Heading>
