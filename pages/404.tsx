@@ -1,4 +1,4 @@
-import { Heading, Text } from '@chakra-ui/react';
+import { Heading, Text, Container } from '@chakra-ui/react';
 import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import { renderMetaTags } from 'react-datocms';
@@ -11,12 +11,12 @@ const NotFound: NextPage<{ notFoundPage: NotFoundPage; site: Site }> = ({
   <>
     <Head>{renderMetaTags(notFoundPage.seo.concat(site.favicon))}</Head>
 
-    <main>
+    <Container py={5}>
       <Heading pb={2} size="2xl">
         {notFoundPage.heading}
       </Heading>
       <Text fontSize="xl">{notFoundPage.description}</Text>
-    </main>
+    </Container>
   </>
 );
 

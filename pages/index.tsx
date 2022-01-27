@@ -1,7 +1,7 @@
-import { Heading } from '@chakra-ui/react';
 import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import { renderMetaTags } from 'react-datocms';
+import HomeBanner from '../components/home/HomeBanner';
 import request from '../lib/datocms';
 
 const Home: NextPage<{ homePage: HomePage; site: Site }> = ({
@@ -12,7 +12,9 @@ const Home: NextPage<{ homePage: HomePage; site: Site }> = ({
     <Head>{renderMetaTags(homePage.seo.concat(site.favicon))}</Head>
 
     <main>
-      <Heading>{homePage.heading}</Heading>
+      {homePage.bannerProjects.map((project, index) => (
+        <HomeBanner isEven={index % 2 !== 0} {...project} key={project.id} />
+      ))}
     </main>
   </>
 );
@@ -20,19 +22,30 @@ const Home: NextPage<{ homePage: HomePage; site: Site }> = ({
 export const getStaticProps: GetStaticProps = async () => {
   const { homePage, site } = await request({
     query: `{
-      homePage {
-        heading
-        seo: _seoMetaTags {
+      site: _site {
+        favicon: faviconMetaTags {
           attributes
           content
           tag
         }
       }
-      site: _site {
-        favicon: faviconMetaTags {
-          tag
-          content
+      homePage {
+        seo: _seoMetaTags {
           attributes
+          content
+          tag
+        }
+        bannerProjects {
+          backgroundColor {
+            hex
+          }
+          title
+          subtitle
+          link
+          image {
+            url(imgixParams: {auto: format, q: 90, w: 1350, h: 676})
+          }
+          textLight
         }
       }
     }

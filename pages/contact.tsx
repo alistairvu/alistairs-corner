@@ -8,6 +8,7 @@ import {
   Button,
   FormErrorMessage,
   Box,
+  Container,
 } from '@chakra-ui/react';
 import { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
@@ -45,7 +46,7 @@ const ContactPage: NextPage<{ contactPage: ContactPage; site: Site }> = ({
   };
 
   return (
-    <>
+    <Container py={5}>
       <Head>{renderMetaTags(contactPage.seo.concat(site.favicon))}</Head>
 
       <Heading as="h1" size="2xl" pb={2}>
@@ -131,7 +132,7 @@ const ContactPage: NextPage<{ contactPage: ContactPage; site: Site }> = ({
           </Button>
         </form>
       )}
-    </>
+    </Container>
   );
 };
 

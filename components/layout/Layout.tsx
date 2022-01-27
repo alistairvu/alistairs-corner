@@ -1,4 +1,4 @@
-import { Box, Container } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import NarrowHeader from './NarrowHeader';
 import WideHeader from './WideHeader';
 import navStyles from '../../styles/header.module.css';
@@ -14,9 +14,7 @@ const Layout: React.FC = ({ children }) => (
       </Box>
     </nav>
 
-    <main style={{ paddingTop: '5em', paddingBottom: 40, minHeight: '95vh' }}>
-      <Container>{children}</Container>
-    </main>
+    <main style={{ paddingTop: '3em', minHeight: '95vh' }}>{children}</main>
   </>
 );
 

@@ -1,5 +1,5 @@
 import { GetStaticProps, NextPage } from 'next';
-import { Box, Divider, Heading, Text } from '@chakra-ui/react';
+import { Box, Container, Divider, Heading, Text } from '@chakra-ui/react';
 import Head from 'next/head';
 import { renderMetaTags } from 'react-datocms';
 import { AboutEducation, AboutSkill } from '../components/about';
@@ -15,7 +15,7 @@ const AboutPage: NextPage<{ aboutPage: AboutPage; site: Site }> = ({
       <meta name="keywords" content={aboutPage.keywords} />
     </Head>
 
-    <main>
+    <Container py={5}>
       <Heading pb={2} size="2xl">
         {aboutPage.heading}
       </Heading>
@@ -42,7 +42,7 @@ const AboutPage: NextPage<{ aboutPage: AboutPage; site: Site }> = ({
           <AboutSkill key={item.id} data={item} />
         ))}
       </Box>
-    </main>
+    </Container>
   </>
 );
 

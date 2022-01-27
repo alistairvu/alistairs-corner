@@ -1,4 +1,4 @@
-import { Heading, SimpleGrid } from '@chakra-ui/react';
+import { Heading, SimpleGrid, Container } from '@chakra-ui/react';
 import { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import { renderMetaTags } from 'react-datocms';
@@ -15,7 +15,7 @@ const Projects: NextPage<{ projectPage: ProjectPage; site: Site }> = ({
       <meta name="keywords" content={projectPage.keywords} />
     </Head>
 
-    <main>
+    <Container py={5}>
       <Heading pb={2} size="2xl">
         projects
       </Heading>
@@ -24,7 +24,7 @@ const Projects: NextPage<{ projectPage: ProjectPage; site: Site }> = ({
           <ProjectCard key={project.id} project={project} />
         ))}
       </SimpleGrid>
-    </main>
+    </Container>
   </>
 );
 

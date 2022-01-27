@@ -70,8 +70,21 @@ type Site = {
   favicon: SEOAttribute[];
 };
 
+type BannerProject = {
+  backgroundColor: { hex: string };
+  title: string;
+  subtitle: string;
+  link: string;
+  image: {
+    url: string;
+  };
+  textLight: boolean;
+  id: string;
+};
+
 type HomePage = {
   heading: string;
+  bannerProjects: BannerProject[];
   seo: SEOAttribute[];
 };
 
