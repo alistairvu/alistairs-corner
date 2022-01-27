@@ -5,8 +5,8 @@ import {
   IconButton,
   useDisclosure,
   Button,
-  Box,
   Collapse,
+  SlideFade,
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
@@ -16,7 +16,12 @@ const NarrowHeader = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <Box className="container" backgroundColor="white" shadow="md">
+    <Flex
+      backgroundColor="white"
+      direction="column"
+      shadow="md"
+      overflowY="hidden"
+    >
       <Flex align="center" py={2} px={4}>
         <NextLink href="/" passHref>
           <Heading cursor="pointer" onClick={onClose}>
@@ -42,24 +47,40 @@ const NarrowHeader = () => {
         />
       </Flex>
 
-      <Collapse in={isOpen}>
-        <Flex direction="column" w="100%" justify="center" align="center">
+      <Collapse in={isOpen} animateOpacity>
+        <Flex
+          direction="column"
+          flex="1"
+          w="100%"
+          h="100vh"
+          justify="center"
+          align="center"
+        >
           {SITE_MAP.map((site) => (
-            <NextLink href={site.link} key={site.link} passHref>
-              <Button
-                variant="ghost"
-                w="60%"
-                fontSize="xl"
-                my={2}
-                onClick={onClose}
-              >
-                {site.title}
-              </Button>
-            </NextLink>
+            <SlideFade key={site.link} in={isOpen}>
+              <NextLink href={site.link} key={site.link} passHref>
+                <Button
+                  variant="ghost"
+                  w="100%"
+                  p={10}
+                  fontSize="4xl"
+                  my={10}
+                  onClick={onClose}
+                  whileHover={{
+                    scale: 1.1,
+                    transformation: {
+                      duration: 1,
+                    },
+                  }}
+                >
+                  {site.title}
+                </Button>
+              </NextLink>
+            </SlideFade>
           ))}
         </Flex>
       </Collapse>
-    </Box>
+    </Flex>
   );
 };
 
