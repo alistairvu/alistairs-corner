@@ -52,7 +52,7 @@ const NarrowHeader = () => {
           direction="column"
           flex="1"
           w="100%"
-          h="100vh"
+          h="80vh"
           justify="center"
           align="center"
         >
