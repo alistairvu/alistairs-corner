@@ -46,7 +46,7 @@ const HomeBanner = ({
           flexShrink="1"
         >
           <Heading>{title}</Heading>
-          <Text>{subtitle}</Text>
+          <Text textAlign="center">{subtitle}</Text>
           {link && (
             <a href={link} target="_blank" rel="noopener noreferrer">
               <Button
