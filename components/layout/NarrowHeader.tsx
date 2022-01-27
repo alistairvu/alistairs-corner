@@ -66,9 +66,9 @@ const NarrowHeader = ({ isOpen, onOpen, onClose }: NarrowHeaderProps) => (
               <Button
                 variant="ghost"
                 w="100%"
-                p={10}
-                fontSize="4xl"
-                mb={5}
+                p={6}
+                fontSize="3xl"
+                mb={4}
                 onClick={onClose}
               >
                 {site.title}

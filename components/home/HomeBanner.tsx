@@ -25,7 +25,7 @@ const HomeBanner = ({
   isEven,
   link,
 }: HomeBannerProps) => (
-  <Box h="65vh" backgroundColor={backgroundColor.hex}>
+  <Box h={{ base: '75vh', md: '50vh' }} backgroundColor={backgroundColor.hex}>
     <Container maxWidth="6xl" h="100%">
       <Flex
         direction={{
@@ -44,10 +44,11 @@ const HomeBanner = ({
           align="center"
           direction="column"
           flexShrink="1"
+          textAlign="center"
         >
-          <Heading fontSize="3xl">{title}</Heading>
+          <Heading fontSize="4xl">{title}</Heading>
 
-          <Text textAlign="center" py={2} fontSize="lg" px={4}>
+          <Text py={2} fontSize="xl" px={{ base: 6, md: 12 }}>
             {subtitle}
           </Text>
 
