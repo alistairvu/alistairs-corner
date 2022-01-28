@@ -1,7 +1,16 @@
-import { Heading, Container, Text, Box, Divider } from '@chakra-ui/react';
+import {
+  Heading,
+  Container,
+  Text,
+  Box,
+  Divider,
+  Button,
+} from '@chakra-ui/react';
+import { ArrowBackIcon } from '@chakra-ui/icons';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import { renderMetaTags } from 'react-datocms';
+import NextLink from 'next/link';
 import CommonStructuredText from '../../components/common/CommonStructuredText';
 import request from '../../lib/datocms';
 
@@ -18,7 +27,22 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({
     <Head>{renderMetaTags(blogPost.seo.concat(site.favicon))}</Head>
 
     <Container py={8}>
-      <Box align="center" py={2}>
+      <NextLink href="/blog" passHref>
+        <Button
+          variant="outline"
+          px={2}
+          size="md"
+          borderColor="gray.900"
+          _hover={{
+            backgroundColor: 'gray.300',
+          }}
+          leftIcon={<ArrowBackIcon w={4} h={4} m={0} p={0} />}
+        >
+          all posts
+        </Button>
+      </NextLink>
+
+      <Box align="center" py={4}>
         <Heading pb={2} size="2xl">
           {blogPost.title}
         </Heading>

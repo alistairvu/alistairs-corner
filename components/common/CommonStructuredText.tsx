@@ -1,11 +1,12 @@
 /* eslint-disable react/no-unstable-nested-components */
-import { Heading, Text, Box } from '@chakra-ui/react';
+import { Heading, Text, Box, Link } from '@chakra-ui/react';
 import {
   isHeading,
   isParagraph,
   isCode,
   isBlockquote,
   renderRule,
+  isLink,
 } from 'datocms-structured-text-utils';
 import { StructuredText } from 'react-datocms';
 import { CopyBlock, atomOneDark } from 'react-code-blocks';
@@ -47,6 +48,8 @@ const CommonStructuredText = ({ content }: CommonStructuredTextProps) => (
             text={node.code}
             language={node.language}
             theme={atomOneDark}
+            customStyle={{ padding: '0.5rem' }}
+            wrapLongLines={false}
           />
         </Box>
       )),
@@ -63,6 +66,21 @@ const CommonStructuredText = ({ content }: CommonStructuredTextProps) => (
           <Text as="i">{children}</Text>
         </Box>
       )),
+
+      renderRule(isLink, ({ node, key, children }) => {
+        const meta = node.meta
+          ? node.meta.reduce(
+              (acc, val) => ({ ...acc, [val.id]: val.value }),
+              {}
+            )
+          : {};
+
+        return (
+          <Link color="cyan.700" href={node.url} {...meta} key={key}>
+            {children}
+          </Link>
+        );
+      }),
     ]}
   />
 );
