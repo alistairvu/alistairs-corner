@@ -124,6 +124,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     variables: { slug: getSlug() },
   });
 
+  if (blogPost === null) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
       blogPost,
