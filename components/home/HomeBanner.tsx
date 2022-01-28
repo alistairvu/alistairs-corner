@@ -35,7 +35,8 @@ const HomeBanner = ({
   isEven,
   link,
 }: HomeBannerProps) => {
-  const [isDisplayed, setIsDisplayed] = useState(false);
+  const [isHeadingDisplayed, setIsHeadingDisplayed] = useState(false);
+  const [isBodyDisplayed, setIsBodyDisplayed] = useState(false);
 
   return (
     <Box h={{ base: '75vh', md: '50vh' }} backgroundColor={backgroundColor.hex}>
@@ -59,9 +60,15 @@ const HomeBanner = ({
             direction="column"
             textAlign="center"
           >
-            <Fade in={isDisplayed}>
+            <Fade in={isHeadingDisplayed}>
               <Heading fontSize="4xl">{title}</Heading>
+              <Waypoint
+                onEnter={() => setIsHeadingDisplayed(true)}
+                onLeave={() => setIsHeadingDisplayed(false)}
+              />
+            </Fade>
 
+            <Fade in={isBodyDisplayed}>
               <Text py={2} fontSize="xl" px={{ base: 6, md: 12 }}>
                 {subtitle}
               </Text>
@@ -83,8 +90,8 @@ const HomeBanner = ({
               )}
 
               <Waypoint
-                onEnter={() => setIsDisplayed(true)}
-                onLeave={() => setIsDisplayed(false)}
+                onEnter={() => setIsBodyDisplayed(true)}
+                onLeave={() => setIsBodyDisplayed(false)}
               />
             </Fade>
           </Flex>

@@ -10,7 +10,9 @@ type ProjectCardProps = {
 };
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
-  const [isDisplayed, setIsDisplayed] = useState(false);
+  const [isTitleDisplayed, setIsTitleDisplayed] = useState(false);
+  const [isDescriptionDisplayed, setIsDescriptionDisplayed] = useState(false);
+  const [isLinkDisplayed, setIsLinkDisplayed] = useState(false);
 
   return (
     <Box
@@ -32,42 +34,54 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       )}
 
       <Box p={4}>
-        <Fade in={isDisplayed}>
+        <Fade in={isTitleDisplayed}>
           <Heading size="md" pb={2} fontWeight="600">
             {project.title}
           </Heading>
-          <Text>{project.description}</Text>
-
           <Waypoint
-            onEnter={() => setIsDisplayed(true)}
-            onLeave={() => setIsDisplayed(false)}
+            onEnter={() => setIsTitleDisplayed(true)}
+            onLeave={() => setIsTitleDisplayed(false)}
           />
-          {(project.link || project.githubLink) && (
-            <>
-              <Box my={2}>
-                <Divider w="50%" borderColor="gray.400" />
-              </Box>
-              <Box>
-                {project.link && (
-                  <Link href={project.link} isExternal>
-                    <Text>
-                      Link
-                      <ExternalLinkIcon mx="4px" mb="4px" />
-                    </Text>
-                  </Link>
-                )}
-                {project.githubLink && (
-                  <Link href={project.githubLink} isExternal>
-                    <Text>
-                      GitHub
-                      <ExternalLinkIcon mx="4px" mb="4px" />
-                    </Text>
-                  </Link>
-                )}
-              </Box>
-            </>
-          )}
         </Fade>
+
+        <Fade in={isDescriptionDisplayed}>
+          <Text>{project.description}</Text>
+          <Waypoint
+            onEnter={() => setIsDescriptionDisplayed(true)}
+            onLeave={() => setIsDescriptionDisplayed(false)}
+          />
+        </Fade>
+
+        {(project.link || project.githubLink) && (
+          <Fade in={isLinkDisplayed}>
+            <Box my={2}>
+              <Divider w="50%" borderColor="gray.400" />
+            </Box>
+            <Box>
+              {project.link && (
+                <Link href={project.link} isExternal>
+                  <Text>
+                    Link
+                    <ExternalLinkIcon mx="4px" mb="4px" />
+                  </Text>
+                </Link>
+              )}
+              {project.githubLink && (
+                <Link href={project.githubLink} isExternal>
+                  <Text>
+                    GitHub
+                    <ExternalLinkIcon mx="4px" mb="4px" />
+                  </Text>
+                </Link>
+              )}
+            </Box>
+
+            <Waypoint
+              onEnter={() => setIsLinkDisplayed(true)}
+              onLeave={() => setIsLinkDisplayed(false)}
+            />
+          </Fade>
+        )}
       </Box>
     </Box>
   );
