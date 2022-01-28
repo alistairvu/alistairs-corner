@@ -16,6 +16,7 @@ type BlogPostShortInfo = {
   description: string;
   id: string;
   slug: string;
+  createdAt: string;
 };
 
 type BlogPageProps = {
@@ -54,6 +55,7 @@ const BlogPage: NextPage<BlogPageProps> = ({
             title={blogPost.title}
             description={blogPost.description}
             slug={blogPost.slug}
+            createdAt={blogPost.createdAt}
             key={blogPost.id}
           />
         ))}
@@ -70,6 +72,7 @@ export const getStaticProps: GetStaticProps = async () => {
         title
         description
         id
+        createdAt
       }
       blogPage {
         seo: _seoMetaTags {

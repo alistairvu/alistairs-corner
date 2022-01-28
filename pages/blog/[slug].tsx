@@ -11,6 +11,7 @@ import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import { renderMetaTags } from 'react-datocms';
 import NextLink from 'next/link';
+import { format } from 'date-fns';
 import CommonStructuredText from '../../components/common/CommonStructuredText';
 import request from '../../lib/datocms';
 
@@ -46,8 +47,12 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({
         <Heading pb={2} size="2xl">
           {blogPost.title}
         </Heading>
+
         <Text fontSize="2xl" py={2}>
           {blogPost.description}
+        </Text>
+        <Text fontSize="sm" color="gray.700" mt={2}>
+          published {format(new Date(blogPost.createdAt), 'd MMMM Y')}
         </Text>
         <Divider borderWidth={1} my={2} borderColor="gray.500" width="60%" />
       </Box>
@@ -80,7 +85,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const POST_QUERY = `query BlogQuery($slug: String) {
     blogPost(filter: {slug: {eq: $slug}}) {
-      _createdAt
+      createdAt
       title
       description(markdown: false)
       seo: _seoMetaTags {

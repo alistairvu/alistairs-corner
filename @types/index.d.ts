@@ -100,6 +100,7 @@ type BlogPost = {
   content: {
     value: any;
   };
+  createdAt: string;
   seo: SEOAttribute[];
   description: string;
   title: string;
