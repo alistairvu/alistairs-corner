@@ -8,8 +8,12 @@ const SITE_MAP: SiteItem[] = [
     title: 'about',
   },
   {
-    link: '/projects',
-    title: 'projects',
+    link: '/blog',
+    title: 'blog',
+  },
+  {
+    link: '/showcase',
+    title: 'showcase',
   },
   {
     link: '/contact',

@@ -83,7 +83,7 @@ export const getStaticProps: GetStaticProps = async () => {
     preview: process.env.NODE_ENV === 'development',
   });
 
-  return { props: { aboutPage, site }, revalidate: 20 };
+  return { props: { aboutPage, site }, revalidate: 12 };
 };
 
 export default AboutPage;

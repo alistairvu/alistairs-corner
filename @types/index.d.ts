@@ -95,3 +95,13 @@ type NotFoundPage = {
   description: string;
   seo: SEOAttribute[];
 };
+
+type BlogPost = {
+  content: {
+    value: any;
+  };
+  seo: SEOAttribute[];
+  description: string;
+  title: string;
+  createdAt: string;
+};

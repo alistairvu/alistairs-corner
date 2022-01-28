@@ -163,6 +163,6 @@ export const getStaticProps: GetStaticProps = async () => {
     preview: process.env.NODE_ENV === 'development',
   });
 
-  return { props: { contactPage, site }, revalidate: 20 };
+  return { props: { contactPage, site }, revalidate: 12 };
 };
 export default ContactPage;

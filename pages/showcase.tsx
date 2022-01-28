@@ -5,7 +5,7 @@ import { renderMetaTags } from 'react-datocms';
 import ProjectCard from '../components/project/ProjectCard';
 import request from '../lib/datocms';
 
-const Projects: NextPage<{ projectPage: ProjectPage; site: Site }> = ({
+const Showcase: NextPage<{ projectPage: ProjectPage; site: Site }> = ({
   projectPage,
   site,
 }) => (
@@ -17,7 +17,7 @@ const Projects: NextPage<{ projectPage: ProjectPage; site: Site }> = ({
 
     <Container py={8}>
       <Heading pb={2} size="2xl">
-        projects
+        showcase
       </Heading>
       <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} columnGap={2}>
         {projectPage.projects.map((project) => (
@@ -63,7 +63,7 @@ export const getStaticProps: GetStaticProps = async () => {
     preview: process.env.NODE_ENV === 'development',
   });
 
-  return { props: { projectPage, site }, revalidate: 20 };
+  return { props: { projectPage, site }, revalidate: 12 };
 };
 
-export default Projects;
+export default Showcase;
