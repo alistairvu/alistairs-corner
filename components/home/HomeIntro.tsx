@@ -21,7 +21,7 @@ const HomeIntro = ({ greeting, subtitle }: HomeIntroProps) => {
   useEffect(() => {
     setTimeout(() => {
       setIsDisplayed(true);
-    }, 200);
+    }, 100);
   }, []);
 
   return (
