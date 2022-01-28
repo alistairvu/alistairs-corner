@@ -4,6 +4,7 @@ import {
   Container,
   VStack,
   StackDivider,
+  Divider,
 } from '@chakra-ui/react';
 import { NextPage, GetStaticProps } from 'next';
 import Head from 'next/head';
@@ -45,6 +46,8 @@ const BlogPage: NextPage<BlogPageProps> = ({
         {blogPage.description}
       </Text>
 
+      <Divider borderColor="gray.400" mb={4} />
+
       <VStack
         spacing={4}
         divider={<StackDivider borderColor="gray.400" />}
@@ -67,7 +70,7 @@ const BlogPage: NextPage<BlogPageProps> = ({
 export const getStaticProps: GetStaticProps = async () => {
   const data = await request({
     query: `{
-      blogPosts: allBlogPosts(orderBy: _createdAt_DESC) {
+      blogPosts: allBlogPosts(orderBy: _createdAt_DESC, filter: {isPublished: {eq: true}}) {
         slug
         title
         description

@@ -66,7 +66,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const { allBlogPosts } = await request({
     query: `
     {
-      allBlogPosts {
+      allBlogPosts(filter: {isPublished: {eq: true}}) {
         slug
       }
     }
@@ -84,7 +84,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const POST_QUERY = `query BlogQuery($slug: String) {
-    blogPost(filter: {slug: {eq: $slug}}) {
+    blogPost(filter: {slug: {eq: $slug}, isPublished: {eq: true}}) {
       createdAt
       title
       description(markdown: false)

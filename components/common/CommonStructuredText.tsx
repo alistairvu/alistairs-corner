@@ -40,14 +40,18 @@ const CommonStructuredText = ({ content }: CommonStructuredTextProps) => (
         };
 
         return (
-          <Heading size={SIZE_MAPPING[node.level]} key={key} py={2}>
+          <Heading
+            size={SIZE_MAPPING[node.level]}
+            key={key}
+            mt={6 - node.level}
+          >
             {children}
           </Heading>
         );
       }),
 
       renderRule(isParagraph, ({ children, key }) => (
-        <Text fontSize="xl" key={key} py={1}>
+        <Text fontSize="lg" key={key}>
           {children}
         </Text>
       )),
@@ -96,7 +100,7 @@ const CommonStructuredText = ({ content }: CommonStructuredTextProps) => (
         switch (node.style) {
           case 'bulleted': {
             return (
-              <UnorderedList key={key} py={2}>
+              <UnorderedList key={key} my={1}>
                 {children}
               </UnorderedList>
             );
@@ -104,7 +108,7 @@ const CommonStructuredText = ({ content }: CommonStructuredTextProps) => (
 
           case 'numbered': {
             return (
-              <OrderedList key={key} py={2}>
+              <OrderedList key={key} my={1}>
                 {children}
               </OrderedList>
             );
