@@ -42,12 +42,13 @@ const CommonStructuredText = ({ content }: CommonStructuredTextProps) => (
       )),
 
       renderRule(isCode, ({ node, key }) => (
-        <CopyBlock
-          text={node.code}
-          language={node.language}
-          theme={atomOneDark}
-          key={key}
-        />
+        <Box my={2} key={key}>
+          <CopyBlock
+            text={node.code}
+            language={node.language}
+            theme={atomOneDark}
+          />
+        </Box>
       )),
 
       renderRule(isBlockquote, ({ key, children }) => (
@@ -57,10 +58,9 @@ const CommonStructuredText = ({ content }: CommonStructuredTextProps) => (
           borderLeftWidth={4}
           width="100%"
           borderLeftColor="gray.600"
+          key={key}
         >
-          <Text as="i" key={key}>
-            {children}
-          </Text>
+          <Text as="i">{children}</Text>
         </Box>
       )),
     ]}

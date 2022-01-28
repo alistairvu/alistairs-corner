@@ -4,6 +4,16 @@ const nextConfig = {
   images: {
     domains: ['www.datocms-assets.com'],
   },
+
+  async redirects() {
+    return [
+      {
+        source: '/projects',
+        destination: '/showcase',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
