@@ -1,5 +1,15 @@
-import { Box, Flex, Heading, Text, Container, Button } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  Heading,
+  Text,
+  Container,
+  Button,
+  Fade,
+} from '@chakra-ui/react';
 import NextImage from 'next/image';
+import { useState } from 'react';
+import { Waypoint } from 'react-waypoint';
 import bannerStyles from '../../styles/banner.module.css';
 
 type HomeBannerProps = {
@@ -24,72 +34,83 @@ const HomeBanner = ({
   textLight,
   isEven,
   link,
-}: HomeBannerProps) => (
-  <Box h={{ base: '75vh', md: '50vh' }} backgroundColor={backgroundColor.hex}>
-    <Container maxWidth="6xl" h="100%">
-      <Flex
-        direction={{
-          base: 'column-reverse',
-          md: isEven ? 'row-reverse' : 'row',
-        }}
-        justify="center"
-        align="center"
-        h="100%"
-      >
+}: HomeBannerProps) => {
+  const [isDisplayed, setIsDisplayed] = useState(false);
+
+  return (
+    <Box h={{ base: '75vh', md: '50vh' }} backgroundColor={backgroundColor.hex}>
+      <Container maxWidth="6xl" h="100%">
         <Flex
-          color={textLight ? 'gray.100' : 'gray.900'}
-          w="100%"
-          h="100%"
+          direction={{
+            base: 'column-reverse',
+            md: isEven ? 'row-reverse' : 'row',
+          }}
           justify="center"
           align="center"
-          direction="column"
-          flexShrink="1"
-          textAlign="center"
+          h="100%"
         >
-          <Heading fontSize="4xl">{title}</Heading>
+          {/* Text element */}
+          <Flex
+            color={textLight ? 'gray.100' : 'gray.900'}
+            w="100%"
+            h="100%"
+            justify="center"
+            align="center"
+            direction="column"
+            textAlign="center"
+          >
+            <Fade in={isDisplayed}>
+              <Heading fontSize="4xl">{title}</Heading>
 
-          <Text py={2} fontSize="xl" px={{ base: 6, md: 12 }}>
-            {subtitle}
-          </Text>
+              <Text py={2} fontSize="xl" px={{ base: 6, md: 12 }}>
+                {subtitle}
+              </Text>
 
-          {link && (
-            <a href={link} target="_blank" rel="noopener noreferrer">
-              <Button
-                variant="outline"
-                borderColor={textLight ? 'gray.100' : 'gray.900'}
-                my={2}
-                _hover={{
-                  color: backgroundColor.hex,
-                  backgroundColor: textLight ? 'gray.100' : 'gray.900',
-                }}
-              >
-                explore
-              </Button>
-            </a>
-          )}
+              {link && (
+                <a href={link} target="_blank" rel="noopener noreferrer">
+                  <Button
+                    variant="outline"
+                    borderColor={textLight ? 'gray.100' : 'gray.900'}
+                    my={2}
+                    _hover={{
+                      color: backgroundColor.hex,
+                      backgroundColor: textLight ? 'gray.100' : 'gray.900',
+                    }}
+                  >
+                    explore
+                  </Button>
+                </a>
+              )}
+
+              <Waypoint
+                onEnter={() => setIsDisplayed(true)}
+                onLeave={() => setIsDisplayed(false)}
+              />
+            </Fade>
+          </Flex>
+
+          <Box
+            w="100%"
+            textAlign="center"
+            shadow="lg"
+            rounded="md"
+            my={10}
+            flexShrink="1"
+          >
+            <NextImage
+              width="1800px"
+              height="912px"
+              layout="responsive"
+              src={image.url}
+              className={bannerStyles.image}
+              alt={`${title}-${subtitle}`}
+            />
+          </Box>
         </Flex>
-
-        <Box
-          w="100%"
-          textAlign="center"
-          shadow="lg"
-          rounded="md"
-          my={10}
-          flexShrink="1"
-        >
-          <NextImage
-            width="1800px"
-            height="912px"
-            layout="responsive"
-            src={image.url}
-            className={bannerStyles.image}
-            alt={`${title}-${subtitle}`}
-          />
-        </Box>
-      </Flex>
-    </Container>
-  </Box>
-);
+      </Container>
+    </Box>
+  );
+};
 
 HomeBanner.defaultProps = {
   textLight: false,
