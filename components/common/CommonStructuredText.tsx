@@ -1,5 +1,13 @@
 /* eslint-disable react/no-unstable-nested-components */
-import { Heading, Text, Box, Link } from '@chakra-ui/react';
+import {
+  Heading,
+  Text,
+  Box,
+  Link,
+  UnorderedList,
+  OrderedList,
+  ListItem,
+} from '@chakra-ui/react';
 import {
   isHeading,
   isParagraph,
@@ -7,6 +15,8 @@ import {
   isBlockquote,
   renderRule,
   isLink,
+  isList,
+  isListItem,
 } from 'datocms-structured-text-utils';
 import { StructuredText } from 'react-datocms';
 import { CopyBlock, atomOneDark } from 'react-code-blocks';
@@ -81,6 +91,36 @@ const CommonStructuredText = ({ content }: CommonStructuredTextProps) => (
           </Link>
         );
       }),
+
+      renderRule(isList, ({ node, key, children }) => {
+        switch (node.style) {
+          case 'bulleted': {
+            return (
+              <UnorderedList key={key} py={2}>
+                {children}
+              </UnorderedList>
+            );
+          }
+
+          case 'numbered': {
+            return (
+              <OrderedList key={key} py={2}>
+                {children}
+              </OrderedList>
+            );
+          }
+
+          default: {
+            return null;
+          }
+        }
+      }),
+
+      renderRule(isListItem, ({ key, children }) => (
+        <ListItem key={key} py={0}>
+          {children}
+        </ListItem>
+      )),
     ]}
   />
 );
