@@ -46,6 +46,17 @@ export const getStaticProps: GetStaticProps = async () => {
           link
           image {
             url(imgixParams: {auto: format, q: 90, w: 1350, h: 676})
+            responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 1920, h: 1080}) {
+              srcSet
+              webpSrcSet
+              sizes
+              src
+              width
+              height
+              aspectRatio
+              bgColor
+              base64
+            }
           }
           textLight
           id
