@@ -14,6 +14,9 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
   const [isDescriptionDisplayed, setIsDescriptionDisplayed] = useState(false);
   const [isLinkDisplayed, setIsLinkDisplayed] = useState(false);
 
+  const processedLinks =
+    project.links?.filter((link) => link.title && link.href) || [];
+
   return (
     <Box
       borderRadius="md"
@@ -42,42 +45,34 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 
         <SlideFade in={isDescriptionDisplayed}>
           <Text>{project.description}</Text>
-          <Waypoint
-            onEnter={() => setIsDescriptionDisplayed(true)}
-            onLeave={() => setIsDescriptionDisplayed(false)}
-          />
         </SlideFade>
 
-        {(project.link || project.githubLink) && (
+        {processedLinks.length > 0 && (
           <SlideFade in={isLinkDisplayed}>
             <Box my={2}>
               <Divider w="50%" borderColor="gray.400" />
             </Box>
             <Box>
-              {project.link && (
-                <Link href={project.link} isExternal>
+              {processedLinks.map(({ title, href }) => (
+                <Link href={href} isExternal key={`${title}${href}`}>
                   <Text>
-                    Link
+                    {title}
                     <ExternalLinkIcon mx="4px" mb="4px" />
                   </Text>
                 </Link>
-              )}
-              {project.githubLink && (
-                <Link href={project.githubLink} isExternal>
-                  <Text>
-                    GitHub
-                    <ExternalLinkIcon mx="4px" mb="4px" />
-                  </Text>
-                </Link>
-              )}
+              ))}
             </Box>
-
-            <Waypoint
-              onEnter={() => setIsLinkDisplayed(true)}
-              onLeave={() => setIsLinkDisplayed(false)}
-            />
           </SlideFade>
         )}
+
+        <Waypoint
+          onEnter={() => setIsDescriptionDisplayed(true)}
+          onLeave={() => setIsDescriptionDisplayed(false)}
+        />
+        <Waypoint
+          onEnter={() => setIsLinkDisplayed(true)}
+          onLeave={() => setIsLinkDisplayed(false)}
+        />
       </Box>
     </Box>
   );

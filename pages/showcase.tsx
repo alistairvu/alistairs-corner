@@ -53,8 +53,7 @@ export const getStaticProps: GetStaticProps = async () => {
             }
           }
           description
-          link
-          githubLink
+          links
         }
         keywords
         seo: _seoMetaTags {
