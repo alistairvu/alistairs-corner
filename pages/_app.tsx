@@ -5,8 +5,8 @@ import '@fontsource/source-serif-pro/600.css';
 import '@fontsource/source-serif-pro/700.css';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import mixpanel from 'mixpanel-browser';
 import Layout from '../components/layout/Layout';
-import * as ga from '../lib/ga.js';
 
 const theme = extendTheme({
   components: {
@@ -37,11 +37,15 @@ const theme = extendTheme({
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
+  mixpanel.init(process.env.NEXT_PUBLIC_MIXPANEL_ID || '', {
+    debug: process.env.NODE_ENV !== 'production',
+  });
 
   useEffect(() => {
     const handleRouteChange = (url: string) => {
-      ga.pageview(url);
+      mixpanel.track(url);
     };
+
     router.events.on('routeChangeComplete', handleRouteChange);
 
     // If the component is unmounted, unsubscribe
