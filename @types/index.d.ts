@@ -9,13 +9,27 @@ type SEOAttribute = {
   tag: any;
 };
 
+type ResponsiveImage = {
+  srcSet: string;
+  webpSrcSet: string;
+  sizes: string;
+  src: string;
+  width: number;
+  height: number;
+  aspectRatio: number;
+  bgColor: string;
+  base64: string;
+  alt: string;
+  title: string;
+};
+
 type Project = {
   id: string;
   title: string;
   image: {
     id: string;
-    url: string;
     alt: string | null;
+    responsiveImage: ResponsiveImage;
   };
   description: string;
   link: string | null;
@@ -77,6 +91,7 @@ type BannerProject = {
   link: string;
   image: {
     url: string;
+    responsiveImage: ResponsiveImage;
   };
   textLight: boolean;
   id: string;

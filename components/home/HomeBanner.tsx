@@ -6,8 +6,10 @@ import {
   Container,
   Button,
   SlideFade,
+  useBreakpointValue,
 } from '@chakra-ui/react';
-import NextImage from 'next/image';
+import { Image as DatoImage } from 'react-datocms';
+
 import { useState } from 'react';
 import { Waypoint } from 'react-waypoint';
 import bannerStyles from '../../styles/banner.module.css';
@@ -17,6 +19,7 @@ type HomeBannerProps = {
   subtitle: string;
   image: {
     url: string;
+    responsiveImage: ResponsiveImage;
   };
   backgroundColor: {
     hex: string;
@@ -39,6 +42,8 @@ const HomeBanner = ({
   const [isBodyDisplayed, setIsBodyDisplayed] = useState(false);
   const [isImageDisplayed, setIsImageDisplayed] = useState(false);
   const [isButtonDisplayed, setIsButtonDisplayed] = useState(false);
+
+  const isMini = useBreakpointValue({ base: true, md: false });
 
   return (
     <Box h={{ base: '75vh', md: '50vh' }} backgroundColor={backgroundColor.hex}>
@@ -69,7 +74,14 @@ const HomeBanner = ({
                 onLeave={() => setIsHeadingDisplayed(false)}
               />
 
-              <Waypoint onEnter={() => setIsImageDisplayed(true)} />
+              <Waypoint
+                onEnter={() => setIsImageDisplayed(true)}
+                onLeave={() => {
+                  if (!isMini) {
+                    setIsImageDisplayed(false);
+                  }
+                }}
+              />
             </SlideFade>
 
             <SlideFade in={isBodyDisplayed}>
@@ -110,18 +122,22 @@ const HomeBanner = ({
           <Box w="100%" textAlign="center" my={10} flexShrink="1">
             <SlideFade in={isImageDisplayed}>
               <Box shadow="lg" rounded="md">
-                <NextImage
-                  width="1800px"
-                  height="912px"
-                  layout="responsive"
-                  src={image.url}
+                <DatoImage
+                  data={image.responsiveImage}
                   className={bannerStyles.image}
-                  alt={`${title}-${subtitle}`}
                 />
 
                 <Waypoint
-                  onEnter={() => setIsImageDisplayed(true)}
-                  onLeave={() => setIsImageDisplayed(false)}
+                  onEnter={() => {
+                    if (isMini) {
+                      setIsImageDisplayed(true);
+                    }
+                  }}
+                  onLeave={() => {
+                    if (isMini) {
+                      setIsImageDisplayed(false);
+                    }
+                  }}
                 />
               </Box>
             </SlideFade>

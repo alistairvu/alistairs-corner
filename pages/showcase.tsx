@@ -37,8 +37,20 @@ export const getStaticProps: GetStaticProps = async () => {
           title
           image {
             id
-            url(imgixParams: {auto: format, q: 80, w: 1350, h: 676})
             alt
+            responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 1920, h: 1080}) {
+              srcSet
+              webpSrcSet
+              sizes
+              src
+              width
+              height
+              aspectRatio
+              bgColor
+              base64
+              alt
+              title
+            }
           }
           description
           link

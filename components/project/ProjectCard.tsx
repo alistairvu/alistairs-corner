@@ -1,6 +1,6 @@
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import { Box, Divider, Heading, Link, Text, SlideFade } from '@chakra-ui/react';
-import NextImage from 'next/image';
+import { Image as DatoImage } from 'react-datocms';
 import { useState } from 'react';
 import { Waypoint } from 'react-waypoint';
 import imageStyles from '../../styles/project-card.module.css';
@@ -22,13 +22,9 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       borderColor="gray.200"
       my={2}
     >
-      {project.image.url && (
-        <NextImage
-          width="900px"
-          height="456px"
-          layout="responsive"
-          src={project.image.url}
-          alt={project.image.alt ?? 'Screenshot of project'}
+      {project.image.responsiveImage && (
+        <DatoImage
+          data={project.image.responsiveImage}
           className={imageStyles.image}
         />
       )}
