@@ -46,7 +46,7 @@ const HomeBanner = ({
   const isMini = useBreakpointValue({ base: true, md: false });
 
   return (
-    <Box h={{ base: '60vh', md: '50vh' }} backgroundColor={backgroundColor.hex}>
+    <Box h={{ base: '75vh', md: '50vh' }} backgroundColor={backgroundColor.hex}>
       <Container maxWidth="6xl" h="100%">
         <Flex
           direction={{
