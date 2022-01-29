@@ -1,5 +1,5 @@
 import { ExternalLinkIcon } from '@chakra-ui/icons';
-import { Box, Divider, Heading, Link, Text, ScaleFade } from '@chakra-ui/react';
+import { Box, Divider, Heading, Link, Text, SlideFade } from '@chakra-ui/react';
 import NextImage from 'next/image';
 import { useState } from 'react';
 import { Waypoint } from 'react-waypoint';
@@ -34,7 +34,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       )}
 
       <Box p={4}>
-        <ScaleFade in={isTitleDisplayed}>
+        <SlideFade in={isTitleDisplayed}>
           <Heading size="md" pb={2} fontWeight="600">
             {project.title}
           </Heading>
@@ -42,18 +42,18 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             onEnter={() => setIsTitleDisplayed(true)}
             onLeave={() => setIsTitleDisplayed(false)}
           />
-        </ScaleFade>
+        </SlideFade>
 
-        <ScaleFade in={isDescriptionDisplayed}>
+        <SlideFade in={isDescriptionDisplayed}>
           <Text>{project.description}</Text>
           <Waypoint
             onEnter={() => setIsDescriptionDisplayed(true)}
             onLeave={() => setIsDescriptionDisplayed(false)}
           />
-        </ScaleFade>
+        </SlideFade>
 
         {(project.link || project.githubLink) && (
-          <ScaleFade in={isLinkDisplayed}>
+          <SlideFade in={isLinkDisplayed}>
             <Box my={2}>
               <Divider w="50%" borderColor="gray.400" />
             </Box>
@@ -80,7 +80,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               onEnter={() => setIsLinkDisplayed(true)}
               onLeave={() => setIsLinkDisplayed(false)}
             />
-          </ScaleFade>
+          </SlideFade>
         )}
       </Box>
     </Box>
