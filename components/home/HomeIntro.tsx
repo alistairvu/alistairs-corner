@@ -4,7 +4,7 @@ import {
   Text,
   HStack,
   Button,
-  ScaleFade,
+  SlideFade,
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import { useState, useEffect } from 'react';
@@ -26,7 +26,7 @@ const HomeIntro = ({ greeting, subtitle }: HomeIntroProps) => {
 
   return (
     <HomeIntroContainer>
-      <ScaleFade initialScale={0.9} in={isDisplayed}>
+      <SlideFade in={isDisplayed}>
         <Container
           textAlign="center"
           color="gray.900"
@@ -73,7 +73,7 @@ const HomeIntro = ({ greeting, subtitle }: HomeIntroProps) => {
             </NextLink>
           </HStack>
         </Container>
-      </ScaleFade>
+      </SlideFade>
     </HomeIntroContainer>
   );
 };

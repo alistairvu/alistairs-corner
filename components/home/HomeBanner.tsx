@@ -46,7 +46,7 @@ const HomeBanner = ({
   const isMini = useBreakpointValue({ base: true, md: false });
 
   return (
-    <Box h={{ base: '75vh', md: '50vh' }} backgroundColor={backgroundColor.hex}>
+    <Box h={{ base: '60vh', md: '50vh' }} backgroundColor={backgroundColor.hex}>
       <Container maxWidth="6xl" h="100%">
         <Flex
           direction={{
@@ -119,7 +119,7 @@ const HomeBanner = ({
             </SlideFade>
           </Flex>
 
-          <Box w="100%" textAlign="center" my={10} flexShrink="1">
+          <Flex w="100%" justify="center" align="center" my={10} flexShrink="1">
             <SlideFade in={isImageDisplayed}>
               <Box shadow="lg" rounded="md">
                 <DatoImage
@@ -141,7 +141,7 @@ const HomeBanner = ({
                 />
               </Box>
             </SlideFade>
-          </Box>
+          </Flex>
         </Flex>
       </Container>
     </Box>
