@@ -1,5 +1,4 @@
 import {
-  Flex,
   Container,
   Heading,
   Text,
@@ -9,6 +8,7 @@ import {
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import { useState, useEffect } from 'react';
+import HomeIntroContainer from './HomeIntroContainer';
 
 type HomeIntroProps = {
   greeting: string;
@@ -25,15 +25,18 @@ const HomeIntro = ({ greeting, subtitle }: HomeIntroProps) => {
   }, []);
 
   return (
-    <ScaleFade initialScale={0.9} in={isDisplayed}>
-      <Flex
-        h="80vh"
-        w="100%"
-        align="center"
-        justify="center"
-        background="white"
-      >
-        <Container textAlign="center">
+    <HomeIntroContainer>
+      <ScaleFade initialScale={0.9} in={isDisplayed}>
+        <Container
+          textAlign="center"
+          color="gray.900"
+          p={4}
+          backgroundColor="white"
+          shadow="md"
+          borderWidth={0.5}
+          borderRadius="sm"
+          borderColor="gray.50"
+        >
           <Heading size="4xl" my={4}>
             {greeting}
           </Heading>
@@ -70,8 +73,8 @@ const HomeIntro = ({ greeting, subtitle }: HomeIntroProps) => {
             </NextLink>
           </HStack>
         </Container>
-      </Flex>
-    </ScaleFade>
+      </ScaleFade>
+    </HomeIntroContainer>
   );
 };
 
