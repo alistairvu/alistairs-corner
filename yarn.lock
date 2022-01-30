@@ -1186,6 +1186,11 @@ acorn@^8.7.0:
   resolved "https://registry.npmjs.org/acorn/-/acorn-8.7.0.tgz"
   integrity sha512-V/LGr1APy+PXIwKebEWrkZPwoeoF+w1jiOBUmuxuiUIaOHtob8Qc9BTrYo7VuI5fR8tqsy+buA2WFooR5olqvQ==
 
+airtable-lite@^1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/airtable-lite/-/airtable-lite-1.6.1.tgz#37042318268db2cf0a58572d1dd1f173c246a59a"
+  integrity sha512-X2uLtMZ9qvcDKRVkGrsS/fRCu6IAAxo17egASgnnz6zOCZQJaOZ6l0InZvs17DiImmTtqMInVV8ShiaRTcg8SA==
+
 ajv@^6.10.0, ajv@^6.12.4:
   version "6.12.6"
   resolved "https://registry.npmjs.org/ajv/-/ajv-6.12.6.tgz"
@@ -3667,6 +3672,11 @@ stylis@4.0.13:
   version "4.0.13"
   resolved "https://registry.npmjs.org/stylis/-/stylis-4.0.13.tgz"
   integrity sha512-xGPXiFVl4YED9Jh7Euv2V220mriG9u4B2TA6Ybjc1catrstKD2PpIdU3U0RKpkVBC2EhmL/F0sPCr9vrFTNRag==
+
+superstruct@^0.15.3:
+  version "0.15.3"
+  resolved "https://registry.yarnpkg.com/superstruct/-/superstruct-0.15.3.tgz#07edfc715259ebfe3b4b2e4cb53e8e45b51674a4"
+  integrity sha512-wilec1Rg3FtKuRjRyCt70g5W29YUEuaLnybdVQUI+VQ7m0bw8k7TzrRv5iYmo6IpjLVrwxP5t3RgjAVqhYh4Fg==
 
 supports-color@^5.3.0, supports-color@^5.5.0:
   version "5.5.0"

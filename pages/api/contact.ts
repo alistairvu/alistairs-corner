@@ -1,9 +1,28 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { Airtable } from 'airtable-lite';
+import { object, string, define, assert } from 'superstruct';
+import { validate as validateEmail } from 'isemail';
+
+const contacts = new Airtable<{ name: string; email: string; message: string }>(
+  `${process.env.AIRTABLE_API_KEY}`,
+  `${process.env.AIRTABLE_BASE}`,
+  'Contact'
+);
 
 type Data = {
   success: boolean;
   error?: any;
+  data?: any;
 };
+
+const email = () =>
+  define<string>('email', (val) => validateEmail(String(val)));
+
+const ContactInfo = object({
+  name: string(),
+  email: email(),
+  message: string(),
+});
 
 const sendContactInformation = async (
   req: NextApiRequest,
@@ -11,29 +30,18 @@ const sendContactInformation = async (
 ) => {
   const contactInformation = req.body;
 
-  const data = await fetch(
-    `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE}/contact`,
-    {
-      headers: {
-        Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        records: [
-          {
-            fields: contactInformation,
-          },
-        ],
-      }),
-      method: 'POST',
-    }
-  ).then((apiRes) => apiRes.json());
-
-  if (data.error) {
-    return res.send({ success: false, error: data.error });
+  try {
+    assert(contactInformation, ContactInfo);
+  } catch (err) {
+    return res.status(400).send({ success: false, error: err });
   }
 
-  return res.send({ success: true });
+  try {
+    const data = await contacts.create(contactInformation);
+    return res.send({ success: true, data });
+  } catch (err) {
+    return res.status(500).send({ success: false, error: err });
+  }
 };
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
