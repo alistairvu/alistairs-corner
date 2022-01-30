@@ -18,8 +18,10 @@ import {
   isList,
   isListItem,
 } from 'datocms-structured-text-utils';
-import { StructuredText } from 'react-datocms';
+import { StructuredText, Image as DatoImage } from 'react-datocms';
 import { CopyBlock, atomOneDark } from 'react-code-blocks';
+import bannerStyles from '../../styles/banner.module.css';
+import { isBlogImageRecord } from '../../lib/datocms_types';
 
 type CommonStructuredTextProps = {
   content: any;
@@ -126,6 +128,27 @@ const CommonStructuredText = ({ content }: CommonStructuredTextProps) => (
         </ListItem>
       )),
     ]}
+    renderBlock={({ record }) => {
+      if (isBlogImageRecord(record)) {
+        return (
+          <Box width="100%" align="center" my={2}>
+            <Box mx={2} maxWidth={{ base: '100%', md: '60%' }}>
+              <Box shadow="md" rounded="md">
+                <DatoImage
+                  data={record.image.responsiveImage}
+                  className={bannerStyles.image}
+                />
+              </Box>
+              <Text mt={3} fontSize="md" color="gray.700">
+                {record.caption}
+              </Text>
+            </Box>
+          </Box>
+        );
+      }
+
+      return null;
+    }}
   />
 );
 

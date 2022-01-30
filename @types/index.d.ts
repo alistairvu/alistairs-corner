@@ -124,4 +124,27 @@ type BlogPost = {
   description: string;
   title: string;
   createdAt: string;
+  blocks: any;
 };
+
+type BlogRecord = {
+  __typename: string;
+  id: string;
+} & {
+  [prop: string]: unknown;
+};
+
+type BlogImage = {
+  image: {
+    responsiveImage: ResponsiveImage;
+  };
+  caption?: string;
+};
+
+interface BlogImageRecord extends BlogRecord {
+  __typename: 'BlogImageRecord';
+  image: {
+    responsiveImage: ResponsiveImage;
+  };
+  caption?: string;
+}

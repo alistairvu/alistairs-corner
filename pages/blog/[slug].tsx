@@ -95,6 +95,28 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       }
       content {
         value
+        blocks {
+          id
+          __typename
+          ... on BlogImageRecord {
+            caption
+            image {
+              responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 1920, h: 1080}) {
+                srcSet
+                webpSrcSet
+                sizes
+                src
+                width
+                height
+                aspectRatio
+                bgColor
+                base64
+                alt
+                title
+              }
+            }
+          }
+        }
       }
     }
     site: _site {
@@ -104,7 +126,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         tag
       }
     }
-  }
+  }  
   `;
 
   const getSlug = () => {
