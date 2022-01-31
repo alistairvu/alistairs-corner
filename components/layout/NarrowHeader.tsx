@@ -2,14 +2,13 @@ import {
   Flex,
   Spacer,
   Heading,
-  IconButton,
   Button,
   Collapse,
   SlideFade,
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import SITE_MAP from '../../constants/siteMap';
+import NarrowHeaderHamburger from './NarrowHeaderHamburger';
 
 type NarrowHeaderProps = {
   isOpen: boolean;
@@ -24,29 +23,29 @@ const NarrowHeader = ({ isOpen, onOpen, onClose }: NarrowHeaderProps) => (
     shadow="md"
     overflowY="hidden"
   >
-    <Flex align="center" py={2} px={4}>
+    <Flex align="center" py={1} px={4}>
       <NextLink href="/" passHref>
-        <Heading cursor="pointer" onClick={onClose} px={4}>
+        <Heading cursor="pointer" onClick={onClose} px={4} size="2xl">
           a
         </Heading>
       </NextLink>
       <Spacer />
 
-      <IconButton
-        icon={
-          isOpen ? <CloseIcon h={4} w={4} /> : <HamburgerIcon h={6} w={6} />
-        }
+      <NarrowHeaderHamburger
         mx={4}
         aria-label="menu"
         variant="ghost"
         backgroundColor="whiteAlpha.100"
-        onClick={() => {
+        toggle={() => {
           if (isOpen) {
             onClose();
           } else {
             onOpen();
           }
         }}
+        size={28}
+        toggled={isOpen}
+        duration={0.3}
       />
     </Flex>
 
