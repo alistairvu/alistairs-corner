@@ -20,10 +20,10 @@ const Layout: React.FC = ({ children }) => {
   return (
     <>
       <nav className={navStyles.nav}>
-        <Box display={isSmall ? 'none' : 'block'}>
+        <Box display={{ base: 'none', md: 'block' }}>
           <WideHeader />
         </Box>
-        <Box display={isSmall ? 'block' : 'none'}>
+        <Box display={{ base: 'block', md: 'none' }}>
           <NarrowHeader isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
           <Fade in={isOpen}>
             <Box
