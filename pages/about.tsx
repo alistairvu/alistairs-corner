@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { renderMetaTags } from 'react-datocms';
 import { AboutEducation, AboutSkill } from '../components/about';
 import request from '../lib/datocms';
+import { metaTagsFragment } from '../lib/datocms_fragments';
 
 const AboutPage: NextPage<{ aboutPage: AboutPage; site: Site }> = ({
   aboutPage,
@@ -66,19 +67,16 @@ export const getStaticProps: GetStaticProps = async () => {
         }
         keywords
         seo: _seoMetaTags {
-          attributes
-          content
-          tag
+          ...metaTagsFragment
         }
       }
       site: _site {
         favicon: faviconMetaTags {
-          attributes
-          content
-          tag
+          ...metaTagsFragment
         }
       }
     }
+    ${metaTagsFragment}
     `,
     preview: process.env.NODE_ENV === 'development',
   });

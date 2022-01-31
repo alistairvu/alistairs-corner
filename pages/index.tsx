@@ -4,6 +4,10 @@ import { renderMetaTags } from 'react-datocms';
 import HomeBanner from '../components/home/HomeBanner';
 import HomeIntro from '../components/home/HomeIntro';
 import request from '../lib/datocms';
+import {
+  responsiveImageFragment,
+  metaTagsFragment,
+} from '../lib/datocms_fragments';
 
 const Home: NextPage<{ homePage: HomePage; site: Site }> = ({
   homePage,
@@ -26,16 +30,12 @@ export const getStaticProps: GetStaticProps = async () => {
     query: `{
       site: _site {
         favicon: faviconMetaTags {
-          attributes
-          content
-          tag
+          ...metaTagsFragment
         }
       }
       homePage {
         seo: _seoMetaTags {
-          attributes
-          content
-          tag
+          ...metaTagsFragment
         }
         bannerProjects {
           backgroundColor {
@@ -47,15 +47,7 @@ export const getStaticProps: GetStaticProps = async () => {
           image {
             url(imgixParams: {auto: format, q: 90, w: 1350, h: 676})
             responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 1920, h: 1080}) {
-              srcSet
-              webpSrcSet
-              sizes
-              src
-              width
-              height
-              aspectRatio
-              bgColor
-              base64
+              ...responsiveImageFragment
             }
           }
           textLight
@@ -65,6 +57,8 @@ export const getStaticProps: GetStaticProps = async () => {
         subtitle
       }
     }
+    ${metaTagsFragment}
+    ${responsiveImageFragment}
     `,
     preview: process.env.NODE_ENV === 'development',
   });

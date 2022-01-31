@@ -5,26 +5,26 @@ import { renderMetaTags } from 'react-datocms';
 import request from '../lib/datocms';
 import { metaTagsFragment } from '../lib/datocms_fragments';
 
-const NotFound: NextPage<{ notFoundPage: NotFoundPage; site: Site }> = ({
-  notFoundPage,
+const Error: NextPage<{ errorPage: ErrorPage; site: Site }> = ({
+  errorPage,
   site,
 }) => (
   <>
-    <Head>{renderMetaTags(notFoundPage.seo.concat(site.favicon))}</Head>
+    <Head>{renderMetaTags(errorPage.seo.concat(site.favicon))}</Head>
 
     <Container py={8}>
       <Heading pb={2} size="2xl">
-        {notFoundPage.heading}
+        {errorPage.heading}
       </Heading>
-      <Text fontSize="xl">{notFoundPage.description}</Text>
+      <Text fontSize="xl">{errorPage.description}</Text>
     </Container>
   </>
 );
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { notFoundPage, site } = await request({
+  const { errorPage, site } = await request({
     query: `{
-      notFoundPage {
+      errorPage {
         heading
         description
         seo: _seoMetaTags {
@@ -42,7 +42,7 @@ export const getStaticProps: GetStaticProps = async () => {
     preview: process.env.NODE_ENV === 'development',
   });
 
-  return { props: { notFoundPage, site }, revalidate: 12 };
+  return { props: { errorPage, site }, revalidate: 12 };
 };
 
-export default NotFound;
+export default Error;

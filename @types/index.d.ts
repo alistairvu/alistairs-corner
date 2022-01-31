@@ -115,11 +115,16 @@ type NotFoundPage = {
   seo: SEOAttribute[];
 };
 
+type ErrorPage = {
+  heading: string;
+  description: string;
+  seo: SEOAttribute[];
+};
+
 type BlogPost = {
   content: {
     value: any;
   };
-  createdAt: string;
   seo: SEOAttribute[];
   description: string;
   title: string;

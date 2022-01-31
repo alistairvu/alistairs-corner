@@ -7,6 +7,7 @@ import {
   UnorderedList,
   OrderedList,
   ListItem,
+  Code,
 } from '@chakra-ui/react';
 import {
   isHeading,
@@ -58,17 +59,23 @@ const CommonStructuredText = ({ content }: CommonStructuredTextProps) => (
         </Text>
       )),
 
-      renderRule(isCode, ({ node, key }) => (
-        <Box my={2} key={key}>
-          <CopyBlock
-            text={node.code}
-            language={node.language}
-            theme={atomOneDark}
-            customStyle={{ padding: '0.5rem' }}
-            wrapLongLines={false}
-          />
-        </Box>
-      )),
+      renderRule(isCode, ({ node, key }) => {
+        if (node.language) {
+          return (
+            <Box my={2} key={key}>
+              <CopyBlock
+                text={node.code}
+                language={node.language}
+                theme={atomOneDark}
+                customStyle={{ padding: '0.5rem' }}
+                wrapLongLines={false}
+              />
+            </Box>
+          );
+        }
+
+        return <Code key={key}>{node.code}</Code>;
+      }),
 
       renderRule(isBlockquote, ({ key, children }) => (
         <Box

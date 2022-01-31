@@ -4,6 +4,10 @@ import Head from 'next/head';
 import { renderMetaTags } from 'react-datocms';
 import ProjectCard from '../components/project/ProjectCard';
 import request from '../lib/datocms';
+import {
+  metaTagsFragment,
+  responsiveImageFragment,
+} from '../lib/datocms_fragments';
 
 const Showcase: NextPage<{ projectPage: ProjectPage; site: Site }> = ({
   projectPage,
@@ -39,17 +43,7 @@ export const getStaticProps: GetStaticProps = async () => {
             id
             alt
             responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 1920, h: 1080}) {
-              srcSet
-              webpSrcSet
-              sizes
-              src
-              width
-              height
-              aspectRatio
-              bgColor
-              base64
-              alt
-              title
+              ...responsiveImageFragment
             }
           }
           description
@@ -57,19 +51,17 @@ export const getStaticProps: GetStaticProps = async () => {
         }
         keywords
         seo: _seoMetaTags {
-          attributes
-          content
-          tag
+          ...metaTagsFragment
         }
       }
       site: _site {
         favicon: faviconMetaTags {
-          attributes
-          content
-          tag
+          ...metaTagsFragment
         }
       }
     }
+    ${metaTagsFragment}
+    ${responsiveImageFragment}
     `,
     preview: process.env.NODE_ENV === 'development',
   });

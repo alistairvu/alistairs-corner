@@ -17,6 +17,7 @@ import { validate as validateEmail } from 'isemail';
 import { useState } from 'react';
 import { renderMetaTags } from 'react-datocms';
 import request from '../lib/datocms';
+import { metaTagsFragment } from '../lib/datocms_fragments';
 
 const ContactPage: NextPage<{ contactPage: ContactPage; site: Site }> = ({
   contactPage,
@@ -146,19 +147,16 @@ export const getStaticProps: GetStaticProps = async () => {
         errorHeading
         errorDescription
         seo: _seoMetaTags {
-          content
-          attributes
-          tag
+          ...metaTagsFragment
         }
       }
       site: _site {
         favicon: faviconMetaTags {
-          attributes
-          content
-          tag
+          ...metaTagsFragment
         }
       }
-    }    
+    }  
+    ${metaTagsFragment}  
     `,
     preview: process.env.NODE_ENV === 'development',
   });

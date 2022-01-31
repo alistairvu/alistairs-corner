@@ -11,6 +11,7 @@ import Head from 'next/head';
 import { renderMetaTags } from 'react-datocms';
 import BlogCard from '../../components/blog/BlogCard';
 import request from '../../lib/datocms';
+import { metaTagsFragment } from '../../lib/datocms_fragments';
 
 type BlogPostShortInfo = {
   title: string;
@@ -79,21 +80,18 @@ export const getStaticProps: GetStaticProps = async () => {
       }
       blogPage {
         seo: _seoMetaTags {
-          attributes
-          content
-          tag
+          ...metaTagsFragment
         }
         heading
         description
       }
       site: _site {
         favicon: faviconMetaTags {
-          attributes
-          content
-          tag
+          ...metaTagsFragment
         }
       }
-    }`,
+    }
+    ${metaTagsFragment}`,
   });
 
   return { props: { ...data }, revalidate: 12 };

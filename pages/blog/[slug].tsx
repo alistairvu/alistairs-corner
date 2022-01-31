@@ -14,6 +14,10 @@ import NextLink from 'next/link';
 import { format } from 'date-fns';
 import CommonStructuredText from '../../components/common/CommonStructuredText';
 import request from '../../lib/datocms';
+import {
+  responsiveImageFragment,
+  metaTagsFragment,
+} from '../../lib/datocms_fragments';
 
 type BlogPostPageProps = {
   blogPost: BlogPost;
@@ -89,9 +93,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       title
       description(markdown: false)
       seo: _seoMetaTags {
-        attributes
-        content
-        tag
+        ...metaTagsFragment
       }
       content {
         value
@@ -102,17 +104,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
             caption
             image {
               responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 1920, h: 1080}) {
-                srcSet
-                webpSrcSet
-                sizes
-                src
-                width
-                height
-                aspectRatio
-                bgColor
-                base64
-                alt
-                title
+                ...responsiveImageFragment
               }
             }
           }
@@ -121,12 +113,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     }
     site: _site {
       favicon: faviconMetaTags {
-        attributes
-        content
-        tag
+        ...metaTagsFragment
       }
     }
   }  
+  ${responsiveImageFragment}
+  ${metaTagsFragment}
   `;
 
   const getSlug = () => {
