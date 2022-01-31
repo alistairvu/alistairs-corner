@@ -1,7 +1,8 @@
-import { Heading, SimpleGrid, Container } from '@chakra-ui/react';
+import { Heading, Container } from '@chakra-ui/react';
 import { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import { renderMetaTags } from 'react-datocms';
+import CommonMasonry from '../components/common/CommonMasonry';
 import ProjectCard from '../components/project/ProjectCard';
 import request from '../lib/datocms';
 import {
@@ -23,11 +24,11 @@ const Showcase: NextPage<{ projectPage: ProjectPage; site: Site }> = ({
       <Heading pb={2} size="2xl">
         showcase
       </Heading>
-      <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} columnGap={2}>
+      <CommonMasonry>
         {projectPage.projects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
-      </SimpleGrid>
+      </CommonMasonry>
     </Container>
   </>
 );
