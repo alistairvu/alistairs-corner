@@ -33,7 +33,7 @@ const NarrowHeader = ({ isOpen, onOpen, onClose }: NarrowHeaderProps) => (
 
       <NarrowHeaderHamburger
         mx={4}
-        aria-label="menu"
+        label="menu"
         backgroundColor="whiteAlpha.100"
         toggle={() => {
           if (isOpen) {
