@@ -34,7 +34,6 @@ const NarrowHeader = ({ isOpen, onOpen, onClose }: NarrowHeaderProps) => (
       <NarrowHeaderHamburger
         mx={4}
         aria-label="menu"
-        variant="ghost"
         backgroundColor="whiteAlpha.100"
         toggle={() => {
           if (isOpen) {
@@ -46,6 +45,7 @@ const NarrowHeader = ({ isOpen, onOpen, onClose }: NarrowHeaderProps) => (
         size={28}
         toggled={isOpen}
         duration={0.3}
+        cursor="pointer"
       />
     </Flex>
 
