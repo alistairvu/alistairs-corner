@@ -1,11 +1,13 @@
-import type { GetStaticProps, NextPage } from 'next';
+import type { GetStaticProps } from 'next';
 import Head from 'next/head';
 import { Heading, Text, Container } from '@chakra-ui/react';
 import { renderMetaTags } from 'react-datocms';
 import request from '~/lib/datocms';
 import { metaTagsFragment } from '~/lib/datocms_fragments';
+import { NextPageWithLayout } from '~/lib/next_types';
+import Layout from '~/components/layout/Layout';
 
-const Error: NextPage<{ errorPage: ErrorPage; site: Site }> = ({
+const Error: NextPageWithLayout<{ errorPage: ErrorPage; site: Site }> = ({
   errorPage,
   site,
 }) => (
@@ -44,5 +46,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return { props: { errorPage, site }, revalidate: 12 };
 };
+
+Error.getLayout = (page) => <Layout>{page}</Layout>;
 
 export default Error;

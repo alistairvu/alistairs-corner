@@ -1,4 +1,4 @@
-import { GetStaticProps, NextPage } from 'next';
+import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import { Heading, Container } from '@chakra-ui/react';
 import { renderMetaTags } from 'react-datocms';
@@ -9,11 +9,13 @@ import {
   metaTagsFragment,
   responsiveImageFragment,
 } from '../lib/datocms_fragments';
+import { NextPageWithLayout } from '~/lib/next_types';
+import Layout from '~/components/layout/Layout';
 
-const Showcase: NextPage<{ projectPage: ProjectPage; site: Site }> = ({
-  projectPage,
-  site,
-}) => (
+const Showcase: NextPageWithLayout<{
+  projectPage: ProjectPage;
+  site: Site;
+}> = ({ projectPage, site }) => (
   <>
     <Head>
       {renderMetaTags(projectPage.seo.concat(site.favicon))}
@@ -69,5 +71,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return { props: { projectPage, site }, revalidate: 12 };
 };
+
+Showcase.getLayout = (page) => <Layout>{page}</Layout>;
 
 export default Showcase;

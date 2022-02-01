@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import NextLink from 'next/link';
 import {
@@ -18,13 +18,15 @@ import {
   responsiveImageFragment,
   metaTagsFragment,
 } from '~/lib/datocms_fragments';
+import { NextPageWithLayout } from '~/lib/next_types';
+import Layout from '~/components/layout/Layout';
 
 type BlogPostPageProps = {
   blogPost: BlogPost;
   site: Site;
 };
 
-const BlogPostPage: NextPage<BlogPostPageProps> = ({
+const BlogPostPage: NextPageWithLayout<BlogPostPageProps> = ({
   blogPost,
   site,
 }: BlogPostPageProps) => (
@@ -152,5 +154,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     revalidate: 12,
   };
 };
+
+BlogPostPage.getLayout = (page) => <Layout>{page}</Layout>;
 
 export default BlogPostPage;

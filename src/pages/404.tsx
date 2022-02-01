@@ -1,14 +1,16 @@
-import type { GetStaticProps, NextPage } from 'next';
+import type { GetStaticProps } from 'next';
 import Head from 'next/head';
 import { Heading, Text, Container } from '@chakra-ui/react';
 import { renderMetaTags } from 'react-datocms';
 import request from '~/lib/datocms';
 import { metaTagsFragment } from '~/lib/datocms_fragments';
+import { NextPageWithLayout } from '~/lib/next_types';
+import Layout from '~/components/layout/Layout';
 
-const NotFound: NextPage<{ notFoundPage: NotFoundPage; site: Site }> = ({
-  notFoundPage,
-  site,
-}) => (
+const NotFound: NextPageWithLayout<{
+  notFoundPage: NotFoundPage;
+  site: Site;
+}> = ({ notFoundPage, site }) => (
   <>
     <Head>{renderMetaTags(notFoundPage.seo.concat(site.favicon))}</Head>
 
@@ -44,5 +46,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return { props: { notFoundPage, site }, revalidate: 12 };
 };
+
+NotFound.getLayout = (page) => <Layout>{page}</Layout>;
 
 export default NotFound;

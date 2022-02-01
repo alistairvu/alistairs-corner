@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import '@fontsource/source-sans-pro';
@@ -7,6 +6,7 @@ import '@fontsource/source-serif-pro/600.css';
 import '@fontsource/source-serif-pro/700.css';
 import mixpanel from 'mixpanel-browser';
 import Layout from '~/components/layout/Layout';
+import type { AppPropsWithLayout } from '~/lib/next_types';
 
 const theme = extendTheme({
   components: {
@@ -35,7 +35,7 @@ const theme = extendTheme({
   },
 });
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
+const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
   const router = useRouter();
   mixpanel.init(process.env.NEXT_PUBLIC_MIXPANEL_ID || '', {
     debug: process.env.NODE_ENV !== 'production',
@@ -55,11 +55,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     };
   }, [router.events]);
 
+  const getLayout = Component.getLayout || ((page) => <Layout>{page}</Layout>);
+
   return (
     <ChakraProvider theme={theme}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      {getLayout(<Component {...pageProps} />)}
     </ChakraProvider>
   );
 };

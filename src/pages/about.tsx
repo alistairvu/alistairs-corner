@@ -1,12 +1,14 @@
-import { GetStaticProps, NextPage } from 'next';
+import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import { Box, Container, Divider, Heading, Text } from '@chakra-ui/react';
 import { renderMetaTags } from 'react-datocms';
 import { AboutEducation, AboutSkill } from '~/components/about';
 import request from '~/lib/datocms';
 import { metaTagsFragment } from '~/lib/datocms_fragments';
+import { NextPageWithLayout } from '~/lib/next_types';
+import Layout from '~/components/layout/Layout';
 
-const AboutPage: NextPage<{ aboutPage: AboutPage; site: Site }> = ({
+const AboutPage: NextPageWithLayout<{ aboutPage: AboutPage; site: Site }> = ({
   aboutPage,
   site,
 }) => (
@@ -83,5 +85,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return { props: { aboutPage, site }, revalidate: 12 };
 };
+
+AboutPage.getLayout = (page) => <Layout>{page}</Layout>;
 
 export default AboutPage;
