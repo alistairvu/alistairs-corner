@@ -37,7 +37,7 @@ const HomeIntro = ({ greeting, subtitle }: HomeIntroProps) => {
           borderRadius="sm"
           borderColor="gray.50"
         >
-          <Heading size="4xl" my={4}>
+          <Heading size="3xl" my={3}>
             {greeting}
           </Heading>
           <Text fontSize="xl" px={4}>
