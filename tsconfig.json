@@ -13,8 +13,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "downlevelIteration": true,
+    "baseUrl": ".",
+    "paths": { "~/*": ["./src/*"] }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "lib/ga.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/lib/ga.js"],
   "exclude": ["node_modules"]
 }

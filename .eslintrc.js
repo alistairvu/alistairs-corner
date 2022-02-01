@@ -42,5 +42,37 @@ module.exports = {
       },
     ],
     'no-undef': 'off',
+    'import/order': [
+      'error',
+      {
+        pathGroups: [
+          {
+            pattern: '~/**',
+            group: 'parent',
+          },
+          {
+            pattern: 'react',
+            group: 'builtin',
+            position: 'before',
+          },
+          {
+            pattern: 'next',
+            group: 'builtin',
+            position: 'before',
+          },
+          {
+            pattern: 'next/**',
+            group: 'builtin',
+            position: 'after',
+          },
+          {
+            pattern: '@chakra/**',
+            group: 'external',
+            position: 'before',
+          },
+        ],
+        pathGroupsExcludedImportTypes: ['react', 'next/**', 'next'],
+      },
+    ],
   },
 };
