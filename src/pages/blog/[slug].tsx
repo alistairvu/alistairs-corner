@@ -19,7 +19,6 @@ import {
   metaTagsFragment,
 } from '~/lib/datocms_fragments';
 import { NextPageWithLayout } from '~/lib/next_types';
-import Layout from '~/components/layout/Layout';
 
 type BlogPostPageProps = {
   blogPost: BlogPost;
@@ -154,7 +153,5 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     revalidate: 12,
   };
 };
-
-BlogPostPage.getLayout = (page) => <Layout>{page}</Layout>;
 
 export default BlogPostPage;

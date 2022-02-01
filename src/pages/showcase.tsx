@@ -10,7 +10,6 @@ import {
   responsiveImageFragment,
 } from '../lib/datocms_fragments';
 import { NextPageWithLayout } from '~/lib/next_types';
-import Layout from '~/components/layout/Layout';
 
 const Showcase: NextPageWithLayout<{
   projectPage: ProjectPage;
@@ -71,7 +70,5 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return { props: { projectPage, site }, revalidate: 12 };
 };
-
-Showcase.getLayout = (page) => <Layout>{page}</Layout>;
 
 export default Showcase;

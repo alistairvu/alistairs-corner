@@ -19,7 +19,6 @@ import { renderMetaTags } from 'react-datocms';
 import request from '~/lib/datocms';
 import { metaTagsFragment } from '~/lib/datocms_fragments';
 import { NextPageWithLayout } from '~/lib/next_types';
-import Layout from '~/components/layout/Layout';
 
 const ContactPage: NextPageWithLayout<{
   contactPage: ContactPage;
@@ -165,7 +164,5 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return { props: { contactPage, site }, revalidate: 12 };
 };
-
-ContactPage.getLayout = (page) => <Layout>{page}</Layout>;
 
 export default ContactPage;

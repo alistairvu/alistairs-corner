@@ -3,7 +3,6 @@ import Head from 'next/head';
 import { renderMetaTags } from 'react-datocms';
 import HomeBanner from '~/components/home/HomeBanner';
 import HomeIntro from '~/components/home/HomeIntro';
-import Layout from '~/components/layout/Layout';
 import request from '~/lib/datocms';
 import { NextPageWithLayout } from '~/lib/next_types';
 import {
@@ -67,7 +66,5 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return { props: { homePage, site }, revalidate: 12 };
 };
-
-Home.getLayout = (page) => <Layout>{page}</Layout>;
 
 export default Home;

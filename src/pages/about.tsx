@@ -5,8 +5,7 @@ import { renderMetaTags } from 'react-datocms';
 import { AboutEducation, AboutSkill } from '~/components/about';
 import request from '~/lib/datocms';
 import { metaTagsFragment } from '~/lib/datocms_fragments';
-import { NextPageWithLayout } from '~/lib/next_types';
-import Layout from '~/components/layout/Layout';
+import type { NextPageWithLayout } from '~/lib/next_types';
 
 const AboutPage: NextPageWithLayout<{ aboutPage: AboutPage; site: Site }> = ({
   aboutPage,
@@ -85,7 +84,5 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return { props: { aboutPage, site }, revalidate: 12 };
 };
-
-AboutPage.getLayout = (page) => <Layout>{page}</Layout>;
 
 export default AboutPage;
