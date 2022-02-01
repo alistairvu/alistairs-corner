@@ -5,18 +5,18 @@ import {
   Button,
   Collapse,
   SlideFade,
+  Box,
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
+import { Turn as Hamburger } from 'hamburger-react';
 import SITE_MAP from '../../constants/siteMap';
-import NarrowHeaderHamburger from './NarrowHeaderHamburger';
 
 type NarrowHeaderProps = {
   isOpen: boolean;
-  onOpen: () => void;
-  onClose: () => void;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const NarrowHeader = ({ isOpen, onOpen, onClose }: NarrowHeaderProps) => (
+const NarrowHeader = ({ isOpen, setIsOpen }: NarrowHeaderProps) => (
   <Flex
     backgroundColor="white"
     direction="column"
@@ -25,28 +25,32 @@ const NarrowHeader = ({ isOpen, onOpen, onClose }: NarrowHeaderProps) => (
   >
     <Flex align="center" py={1} px={4}>
       <NextLink href="/" passHref>
-        <Heading cursor="pointer" onClick={onClose} px={4} size="2xl">
+        <Heading
+          cursor="pointer"
+          onClick={() => setIsOpen(false)}
+          px={4}
+          size="2xl"
+        >
           a
         </Heading>
       </NextLink>
       <Spacer />
 
-      <NarrowHeaderHamburger
-        mx={4}
-        label="menu"
+      <Box
         backgroundColor="whiteAlpha.100"
-        toggle={() => {
-          if (isOpen) {
-            onClose();
-          } else {
-            onOpen();
-          }
-        }}
-        size={28}
-        toggled={isOpen}
-        duration={0.3}
+        mx={4}
         cursor="pointer"
-      />
+        rounded="lg"
+      >
+        <Hamburger
+          label="menu"
+          toggle={() => setIsOpen((prev) => !prev)}
+          size={28}
+          toggled={isOpen}
+          duration={0.3}
+          rounded
+        />
+      </Box>
     </Flex>
 
     <Collapse in={isOpen} animateOpacity>
@@ -68,7 +72,7 @@ const NarrowHeader = ({ isOpen, onOpen, onClose }: NarrowHeaderProps) => (
                 p={6}
                 fontSize="3xl"
                 mb={4}
-                onClick={onClose}
+                onClick={() => setIsOpen(false)}
               >
                 {site.title}
               </Button>

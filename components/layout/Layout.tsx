@@ -1,12 +1,12 @@
-import { Box, useDisclosure, Fade, useBreakpointValue } from '@chakra-ui/react';
+import { Box, Fade, useBreakpointValue } from '@chakra-ui/react';
 import disableScroll from 'disable-scroll';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import NarrowHeader from './NarrowHeader';
 import WideHeader from './WideHeader';
 import navStyles from '../../styles/header.module.css';
 
 const Layout: React.FC = ({ children }) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [isOpen, setIsOpen] = useState(false);
   const isSmall = useBreakpointValue({ base: true, md: false });
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const Layout: React.FC = ({ children }) => {
           <WideHeader />
         </Box>
         <Box display={{ base: 'block', md: 'none' }}>
-          <NarrowHeader isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
+          <NarrowHeader isOpen={isOpen} setIsOpen={setIsOpen} />
           <Fade in={isOpen}>
             <Box
               position="absolute"
@@ -35,7 +35,7 @@ const Layout: React.FC = ({ children }) => {
               backgroundColor="blackAlpha.500"
               zIndex="100"
               display={isOpen ? 'block' : 'none'}
-              onClick={onClose}
+              onClick={() => setIsOpen((prev) => !prev)}
             />
           </Fade>
         </Box>
