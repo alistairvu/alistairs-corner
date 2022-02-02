@@ -49,7 +49,7 @@ const HomeBanner = ({
           direction="column"
           textAlign="center"
         >
-          <Reveal direction="up" duration={500}>
+          <Reveal direction="up" duration={500} triggerOnce>
             <Heading fontSize="4xl">{title}</Heading>
 
             <Text py={2} fontSize="xl" px={{ base: 6, md: 12 }}>
@@ -75,7 +75,7 @@ const HomeBanner = ({
         </Flex>
 
         <Flex w="100%" justify="center" align="center" my={10} flexShrink="1">
-          <Reveal delay={200} duration={500}>
+          <Reveal delay={200} duration={500} triggerOnce>
             <Tilt gyroscope>
               <Box shadow="lg" rounded="md">
                 <DatoImage
