@@ -76,7 +76,7 @@ const HomeBanner = ({
 
         <Flex w="100%" justify="center" align="center" my={10} flexShrink="1">
           <Reveal delay={200} duration={500} triggerOnce>
-            <Tilt gyroscope>
+            <Tilt>
               <Box shadow="lg" rounded="md">
                 <DatoImage
                   data={image.responsiveImage}
