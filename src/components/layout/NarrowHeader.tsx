@@ -8,7 +8,7 @@ import {
   SlideFade,
   Box,
 } from '@chakra-ui/react';
-import { Turn as Hamburger } from 'hamburger-react';
+import { Squash as Hamburger } from 'hamburger-react';
 import SITE_MAP from '../../constants/siteMap';
 
 type NarrowHeaderProps = {
