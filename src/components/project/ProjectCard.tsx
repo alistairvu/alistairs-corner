@@ -13,13 +13,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
     project.links?.filter((link) => link.title && link.href) || [];
 
   return (
-    <Box
-      borderRadius="md"
-      shadow="sm"
-      borderWidth={1}
-      borderColor="gray.200"
-      my={2}
-    >
+    <Box rounded="md" shadow="lg" my={2}>
       {project.image.responsiveImage && (
         <DatoImage
           data={project.image.responsiveImage}

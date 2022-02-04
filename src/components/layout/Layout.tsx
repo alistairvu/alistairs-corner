@@ -4,6 +4,7 @@ import disableScroll from 'disable-scroll';
 import navStyles from '~/styles/header.module.css';
 import NarrowHeader from './NarrowHeader';
 import WideHeader from './WideHeader';
+import Footer from './Footer';
 
 const Layout: React.FC = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,7 +42,11 @@ const Layout: React.FC = ({ children }) => {
         </Box>
       </nav>
 
-      <main style={{ paddingTop: '3em', minHeight: '95vh' }}>{children}</main>
+      <main style={{ paddingTop: '3em', minHeight: '100vh' }}>{children}</main>
+
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 };

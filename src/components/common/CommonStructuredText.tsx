@@ -46,7 +46,7 @@ const CommonStructuredText = ({ content }: CommonStructuredTextProps) => (
           <Heading
             size={SIZE_MAPPING[node.level]}
             key={key}
-            mt={6 - node.level}
+            my={(6 - node.level) * 2}
           >
             {children}
           </Heading>
@@ -54,7 +54,7 @@ const CommonStructuredText = ({ content }: CommonStructuredTextProps) => (
       }),
 
       renderRule(isParagraph, ({ children, key }) => (
-        <Text fontSize="lg" key={key} my={2}>
+        <Text fontSize="lg" key={key} my={4}>
           {children}
         </Text>
       )),

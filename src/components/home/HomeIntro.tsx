@@ -17,10 +17,8 @@ const HomeIntro = ({ greeting, subtitle }: HomeIntroProps) => (
         color="gray.900"
         p={4}
         backgroundColor="white"
-        shadow="md"
-        borderWidth={0.5}
-        borderRadius="sm"
-        borderColor="gray.50"
+        shadow="lg"
+        rounded="sm"
       >
         <Heading size="3xl" my={3}>
           {greeting}
