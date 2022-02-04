@@ -5,7 +5,7 @@ import SITE_MAP from '~/constants/siteMap';
 const Footer = () => (
   <Flex
     width="100%"
-    background="gray.300"
+    background="gray.200"
     height="100%"
     my={0}
     p={6}
