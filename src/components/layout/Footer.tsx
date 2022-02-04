@@ -33,17 +33,18 @@ const Footer = () => (
 
     <Box textAlign={{ base: 'left', md: 'right' }} flexGrow={1}>
       {SITE_MAP.map(({ title, link }) => (
-        <Link as={NextLink} href={link} passHref key={link}>
-          <Heading
-            color="gray.900"
-            pb={1}
-            size="lg"
-            _hover={{ color: 'gray.500' }}
-            cursor="pointer"
-          >
+        <Heading
+          color="gray.900"
+          pb={1}
+          size="lg"
+          _hover={{ color: 'gray.500' }}
+          cursor="pointer"
+          key={link}
+        >
+          <Link as={NextLink} href={link} passHref>
             {title}
-          </Heading>
-        </Link>
+          </Link>
+        </Heading>
       ))}
     </Box>
   </Flex>

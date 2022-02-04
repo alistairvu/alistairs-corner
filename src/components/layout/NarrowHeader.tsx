@@ -65,18 +65,18 @@ const NarrowHeader = ({ isOpen, setIsOpen }: NarrowHeaderProps) => (
       >
         {SITE_MAP.map((site) => (
           <SlideFade key={site.link} in={isOpen}>
-            <NextLink href={site.link} key={site.link} passHref>
-              <Button
-                variant="ghost"
-                w="100%"
-                p={6}
-                fontSize="3xl"
-                mb={4}
-                onClick={() => setIsOpen(false)}
-              >
+            <Button
+              variant="ghost"
+              w="100%"
+              p={6}
+              fontSize="3xl"
+              mb={4}
+              onClick={() => setIsOpen(false)}
+            >
+              <NextLink href={site.link} key={site.link} passHref>
                 {site.title}
-              </Button>
-            </NextLink>
+              </NextLink>
+            </Button>
           </SlideFade>
         ))}
       </Flex>
