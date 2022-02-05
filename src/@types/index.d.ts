@@ -24,8 +24,8 @@ type ResponsiveImage = {
 };
 
 type ProjectLink = {
-  title?: string;
-  href?: string;
+  title: string;
+  href: string;
 };
 
 type Project = {
@@ -37,7 +37,7 @@ type Project = {
     responsiveImage: ResponsiveImage;
   };
   description: string;
-  links?: Array<ProjectLink>;
+  links?: Array<any>;
 };
 
 type Education = {

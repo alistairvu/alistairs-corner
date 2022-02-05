@@ -10,8 +10,10 @@ type ProjectCardProps = {
 };
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
-  const processedLinks =
-    project.links?.filter((link) => link.title && link.href) || [];
+  const isProjectLink = (o: any): o is ProjectLink => o.title && o.href;
+
+  const processedLinks: ProjectLink[] =
+    project.links?.filter((link) => isProjectLink(link)) || [];
 
   return (
     <Box rounded="md" shadow="lg" my={2}>
