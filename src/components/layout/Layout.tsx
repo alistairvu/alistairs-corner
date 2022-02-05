@@ -3,7 +3,11 @@ import { HeaderProvider } from '~/contexts/HeaderContext';
 import Footer from './Footer';
 import Header from './Header';
 
-const Layout: React.FC = ({ children }) => (
+type LayoutProps = {
+  children: React.ReactNode;
+};
+
+const Layout = ({ children }: LayoutProps) => (
   <HeaderProvider>
     <Header />
 

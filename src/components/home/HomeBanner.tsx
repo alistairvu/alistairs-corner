@@ -1,4 +1,12 @@
-import { Box, Flex, Heading, Text, Container, Button } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  Heading,
+  Text,
+  Container,
+  Button,
+  Link,
+} from '@chakra-ui/react';
 import { Fade as Reveal } from 'react-awesome-reveal';
 import { Image as DatoImage } from 'react-datocms';
 import Tilt from 'react-parallax-tilt';
@@ -58,8 +66,9 @@ const HomeBanner = ({
             </Text>
 
             {link && (
-              <a href={link} target="_blank" rel="noopener noreferrer">
+              <Link href={link} isExternal _hover={{ textDecoration: 'none' }}>
                 <Button
+                  as="a"
                   variant="outline"
                   borderColor={textLight ? 'gray.100' : 'gray.900'}
                   my={2}
@@ -70,7 +79,7 @@ const HomeBanner = ({
                 >
                   explore
                 </Button>
-              </a>
+              </Link>
             )}
           </Reveal>
         </Flex>

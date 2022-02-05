@@ -15,8 +15,7 @@ const WideHeader = () => (
       {SITE_MAP.map((site) => (
         <Box mx={2} key={site.link}>
           <NextLink href={site.link} passHref>
-            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <Link>
+            <Link href={site.link}>
               <Text
                 _hover={{
                   textDecoration: 'underline',

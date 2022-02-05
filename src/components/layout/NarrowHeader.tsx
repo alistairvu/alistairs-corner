@@ -8,6 +8,7 @@ import {
   Collapse,
   SlideFade,
   Box,
+  Link,
 } from '@chakra-ui/react';
 import { Squash as Hamburger } from 'hamburger-react';
 
@@ -63,11 +64,18 @@ const NarrowHeader = () => {
         >
           {SITE_MAP.map((site) => (
             <SlideFade key={site.link} in={isOpen}>
-              <Button variant="ghost" w="100%" p={6} fontSize="3xl" mb={4}>
-                <NextLink href={site.link} key={site.link} passHref>
+              <Link as={NextLink} href={site.link} passHref>
+                <Button
+                  as="a"
+                  variant="ghost"
+                  w="100%"
+                  p={6}
+                  fontSize="3xl"
+                  mb={4}
+                >
                   {site.title}
-                </NextLink>
-              </Button>
+                </Button>
+              </Link>
             </SlideFade>
           ))}
         </Flex>
