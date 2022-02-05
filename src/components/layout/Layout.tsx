@@ -1,57 +1,18 @@
-import { useEffect, useState } from 'react';
-
-import { Box, Fade, useBreakpointValue } from '@chakra-ui/react';
-import disableScroll from 'disable-scroll';
-
-import navStyles from '~/styles/header.module.css';
+import { HeaderProvider } from '~/contexts/HeaderContext';
 
 import Footer from './Footer';
-import NarrowHeader from './NarrowHeader';
-import WideHeader from './WideHeader';
+import Header from './Header';
 
-const Layout: React.FC = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const isSmall = useBreakpointValue({ base: true, md: false });
+const Layout: React.FC = ({ children }) => (
+  <HeaderProvider>
+    <Header />
 
-  useEffect(() => {
-    if (isOpen && isSmall) {
-      disableScroll.on();
-    } else {
-      disableScroll.off();
-    }
-  }, [isOpen, isSmall]);
+    <main style={{ paddingTop: '3em', minHeight: '100vh' }}>{children}</main>
 
-  return (
-    <>
-      <nav className={navStyles.nav}>
-        <Box display={{ base: 'none', md: 'block' }}>
-          <WideHeader />
-        </Box>
-        <Box display={{ base: 'block', md: 'none' }}>
-          <NarrowHeader isOpen={isOpen} setIsOpen={setIsOpen} />
-          <Fade in={isOpen}>
-            <Box
-              position="absolute"
-              t={0}
-              l={0}
-              h="100vh"
-              w="100vw"
-              backgroundColor="blackAlpha.500"
-              zIndex="100"
-              display={isOpen ? 'block' : 'none'}
-              onClick={() => setIsOpen((prev) => !prev)}
-            />
-          </Fade>
-        </Box>
-      </nav>
-
-      <main style={{ paddingTop: '3em', minHeight: '100vh' }}>{children}</main>
-
-      <footer>
-        <Footer />
-      </footer>
-    </>
-  );
-};
+    <footer>
+      <Footer />
+    </footer>
+  </HeaderProvider>
+);
 
 export default Layout;
