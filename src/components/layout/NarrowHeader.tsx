@@ -1,4 +1,5 @@
 import NextLink from 'next/link';
+
 import {
   Flex,
   Spacer,
@@ -9,6 +10,7 @@ import {
   Box,
 } from '@chakra-ui/react';
 import { Squash as Hamburger } from 'hamburger-react';
+
 import SITE_MAP from '../../constants/siteMap';
 
 type NarrowHeaderProps = {

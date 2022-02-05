@@ -2,6 +2,7 @@ import { Box, Flex, Heading, Text, Container, Button } from '@chakra-ui/react';
 import { Fade as Reveal } from 'react-awesome-reveal';
 import { Image as DatoImage } from 'react-datocms';
 import Tilt from 'react-parallax-tilt';
+
 import bannerStyles from '~/styles/banner.module.css';
 
 type HomeBannerProps = {

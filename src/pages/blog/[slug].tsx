@@ -1,6 +1,9 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
+
 import Head from 'next/head';
 import NextLink from 'next/link';
+
+import { ArrowBackIcon } from '@chakra-ui/icons';
 import {
   Heading,
   Container,
@@ -9,9 +12,9 @@ import {
   Divider,
   Button,
 } from '@chakra-ui/react';
-import { ArrowBackIcon } from '@chakra-ui/icons';
-import { renderMetaTags } from 'react-datocms';
 import { format } from 'date-fns';
+import { renderMetaTags } from 'react-datocms';
+
 import CommonStructuredText from '~/components/common/CommonStructuredText';
 import request from '~/lib/datocms';
 import {

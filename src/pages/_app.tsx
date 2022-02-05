@@ -1,10 +1,13 @@
 import { useEffect } from 'react';
+
 import { useRouter } from 'next/router';
+
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import '@fontsource/source-sans-pro';
 import '@fontsource/source-serif-pro/600.css';
 import '@fontsource/source-serif-pro/700.css';
 import mixpanel from 'mixpanel-browser';
+
 import Layout from '~/components/layout/Layout';
 import type { AppPropsWithLayout } from '~/lib/next_types';
 

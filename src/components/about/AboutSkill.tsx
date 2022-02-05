@@ -1,4 +1,5 @@
 import { Box, Heading } from '@chakra-ui/react';
+
 import CommonMarkdown from '~/components/common/CommonMarkdown';
 
 type AboutSkillProps = {

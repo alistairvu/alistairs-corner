@@ -1,8 +1,9 @@
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import { Box, Divider, Heading, Link, Text } from '@chakra-ui/react';
-import { Image as DatoImage } from 'react-datocms';
 import { Fade as Reveal } from 'react-awesome-reveal';
-import imageStyles from '../../styles/project-card.module.css';
+import { Image as DatoImage } from 'react-datocms';
+
+import imageStyles from '~/styles/project-card.module.css';
 
 type ProjectCardProps = {
   project: Project;

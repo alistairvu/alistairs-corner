@@ -1,4 +1,5 @@
 import NextLink from 'next/link';
+
 import { Container, Heading, Text, HStack, Button } from '@chakra-ui/react';
 import { Fade as Reveal } from 'react-awesome-reveal';
 

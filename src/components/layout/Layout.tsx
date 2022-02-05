@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
+
 import { Box, Fade, useBreakpointValue } from '@chakra-ui/react';
 import disableScroll from 'disable-scroll';
+
 import navStyles from '~/styles/header.module.css';
+
+import Footer from './Footer';
 import NarrowHeader from './NarrowHeader';
 import WideHeader from './WideHeader';
-import Footer from './Footer';
 
 const Layout: React.FC = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);

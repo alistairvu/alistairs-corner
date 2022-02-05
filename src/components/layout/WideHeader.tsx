@@ -1,5 +1,7 @@
 import NextLink from 'next/link';
+
 import { Flex, Spacer, Heading, Box, Link, Text } from '@chakra-ui/react';
+
 import SITE_MAP from '../../constants/siteMap';
 
 const WideHeader = () => (

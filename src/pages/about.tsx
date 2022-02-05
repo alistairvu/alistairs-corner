@@ -1,7 +1,10 @@
 import { GetStaticProps } from 'next';
+
 import Head from 'next/head';
+
 import { Box, Container, Divider, Heading, Text } from '@chakra-ui/react';
 import { renderMetaTags } from 'react-datocms';
+
 import { AboutEducation, AboutSkill } from '~/components/about';
 import request from '~/lib/datocms';
 import { metaTagsFragment } from '~/lib/datocms_fragments';

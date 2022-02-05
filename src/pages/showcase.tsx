@@ -1,14 +1,17 @@
 import { GetStaticProps } from 'next';
+
 import Head from 'next/head';
+
 import { Heading, Container } from '@chakra-ui/react';
 import { renderMetaTags } from 'react-datocms';
-import CommonMasonry from '~/components/common/CommonMasonry';
-import ProjectCard from '~/components/project/ProjectCard';
-import request from '~/lib/datocms';
+
 import {
   metaTagsFragment,
   responsiveImageFragment,
 } from '../lib/datocms_fragments';
+import CommonMasonry from '~/components/common/CommonMasonry';
+import ProjectCard from '~/components/project/ProjectCard';
+import request from '~/lib/datocms';
 import { NextPageWithLayout } from '~/lib/next_types';
 
 const Showcase: NextPageWithLayout<{

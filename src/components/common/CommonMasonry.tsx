@@ -1,5 +1,7 @@
 import { ReactNode } from 'react';
+
 import Masonry from 'react-masonry-css';
+
 import masonryStyles from '~/styles/masonry.module.css';
 
 type CommonMasonryProps = {

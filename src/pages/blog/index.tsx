@@ -1,5 +1,7 @@
 import { GetStaticProps } from 'next';
+
 import Head from 'next/head';
+
 import {
   Heading,
   Text,
@@ -9,6 +11,7 @@ import {
   Divider,
 } from '@chakra-ui/react';
 import { renderMetaTags } from 'react-datocms';
+
 import BlogCard from '~/components/blog/BlogCard';
 import request from '~/lib/datocms';
 import { metaTagsFragment } from '~/lib/datocms_fragments';

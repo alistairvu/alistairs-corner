@@ -1,7 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+
 import { Airtable } from 'airtable-lite';
-import { object, string, define, assert } from 'superstruct';
 import { validate as validateEmail } from 'isemail';
+import { object, string, define, assert } from 'superstruct';
 
 const contacts = new Airtable<{ name: string; email: string; message: string }>(
   `${process.env.AIRTABLE_API_KEY}`,

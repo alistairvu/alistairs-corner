@@ -1,5 +1,5 @@
-import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
 import { ListItem, Text, UnorderedList } from '@chakra-ui/react';
+import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
 import ReactMarkdown from 'react-markdown';
 
 const newTheme = {

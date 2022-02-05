@@ -1,5 +1,7 @@
 import NextLink from 'next/link';
+
 import { Box, Flex, Heading, Link, Divider, Text } from '@chakra-ui/react';
+
 import SITE_MAP from '~/constants/siteMap';
 
 const Footer = () => (

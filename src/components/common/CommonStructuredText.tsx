@@ -19,10 +19,11 @@ import {
   isList,
   isListItem,
 } from 'datocms-structured-text-utils';
-import { StructuredText, Image as DatoImage } from 'react-datocms';
 import { CopyBlock, atomOneDark } from 'react-code-blocks';
-import bannerStyles from '~/styles/banner.module.css';
+import { StructuredText, Image as DatoImage } from 'react-datocms';
+
 import { isBlogImageRecord } from '~/lib/datocms_types';
+import bannerStyles from '~/styles/banner.module.css';
 
 type CommonStructuredTextProps = {
   content: any;

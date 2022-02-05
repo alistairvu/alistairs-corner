@@ -59,7 +59,7 @@ module.exports = {
           {
             pattern: 'next',
             group: 'builtin',
-            position: 'before',
+            position: 'after',
           },
           {
             pattern: 'next/**',
@@ -72,7 +72,17 @@ module.exports = {
             position: 'before',
           },
         ],
-        pathGroupsExcludedImportTypes: ['react', 'next/**', 'next'],
+        pathGroupsExcludedImportTypes: [
+          'react',
+          'next/**',
+          'next',
+          '@chakra/**',
+        ],
+        'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
       },
     ],
   },

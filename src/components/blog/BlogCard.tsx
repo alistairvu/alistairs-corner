@@ -1,4 +1,5 @@
 import NextLink from 'next/link';
+
 import { LinkBox, Heading, LinkOverlay, Text } from '@chakra-ui/react';
 import { format } from 'date-fns';
 

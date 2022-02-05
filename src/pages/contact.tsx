@@ -1,6 +1,9 @@
 import { useState } from 'react';
+
 import { GetStaticProps } from 'next';
+
 import Head from 'next/head';
+
 import {
   FormLabel,
   FormControl,
@@ -13,9 +16,10 @@ import {
   Box,
   Container,
 } from '@chakra-ui/react';
-import { useForm } from 'react-hook-form';
 import { validate as validateEmail } from 'isemail';
 import { renderMetaTags } from 'react-datocms';
+import { useForm } from 'react-hook-form';
+
 import request from '~/lib/datocms';
 import { metaTagsFragment } from '~/lib/datocms_fragments';
 import { NextPageWithLayout } from '~/lib/next_types';
