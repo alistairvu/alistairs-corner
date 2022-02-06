@@ -82,7 +82,9 @@ const ContactPage: NextPageWithLayout<{
           shadow="md"
           color="green.600"
         >
-          <Heading size="lg">{contactPage.successHeading}</Heading>
+          <Heading size="lg" as="h1">
+            {contactPage.successHeading}
+          </Heading>
           <Text>{contactPage.successDescription}</Text>
         </Box>
       ) : (
