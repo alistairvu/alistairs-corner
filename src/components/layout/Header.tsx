@@ -54,6 +54,7 @@ const Header = () => {
             zIndex="100"
             display={isOpen ? 'block' : 'none'}
             onClick={() => dispatch({ type: 'TOGGLE' })}
+            id="header-overlay"
           />
         </Fade>
       </Box>
