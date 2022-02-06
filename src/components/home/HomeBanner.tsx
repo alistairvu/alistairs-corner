@@ -37,7 +37,11 @@ const HomeBanner = ({
   isEven,
   link,
 }: HomeBannerProps) => (
-  <Box h={{ base: '75vh', md: '50vh' }} backgroundColor={backgroundColor.hex}>
+  <Box
+    h={{ base: '75vh', md: '50vh' }}
+    backgroundColor={backgroundColor.hex}
+    className="home-title"
+  >
     <Container maxWidth="6xl" h="100%">
       <Flex
         direction={{

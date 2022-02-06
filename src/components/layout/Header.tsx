@@ -37,7 +37,7 @@ const Header = () => {
   }, [dispatch, router.events]);
 
   return (
-    <nav className={navStyles.nav}>
+    <nav className={navStyles.nav} id="top-nav">
       <Box display={{ base: 'none', md: 'block' }}>
         <WideHeader />
       </Box>
