@@ -44,7 +44,7 @@ const BlogPage: NextPageWithLayout<BlogPageProps> = ({
         {blogPage.description}
       </Text>
 
-      <Divider borderColor="gray.400" mb={4} />
+      <Divider borderColor="gray.400" my={2} />
 
       <VStack spacing={4} align="start">
         {blogPosts.map((blogPost) => (
