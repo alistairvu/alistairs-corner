@@ -4,17 +4,10 @@ import Head from 'next/head';
 import NextLink from 'next/link';
 
 import { ArrowBackIcon } from '@chakra-ui/icons';
-import {
-  Heading,
-  Container,
-  Text,
-  Box,
-  Divider,
-  Button,
-} from '@chakra-ui/react';
-import { format } from 'date-fns';
+import { Container, Button, Link } from '@chakra-ui/react';
 import { renderMetaTags } from 'react-datocms';
 
+import BlogTitle from '~/components/blog/BlogTitle';
 import CommonStructuredText from '~/components/common/CommonStructuredText';
 import request from '~/lib/datocms';
 import {
@@ -37,33 +30,27 @@ const BlogPostPage: NextPageWithLayout<BlogPostPageProps> = ({
 
     <Container py={8}>
       <NextLink href="/blog" passHref>
-        <Button
-          variant="outline"
-          px={2}
-          size="md"
-          borderColor="gray.900"
-          _hover={{
-            backgroundColor: 'gray.300',
-          }}
-          leftIcon={<ArrowBackIcon w={4} h={4} m={0} p={0} />}
-        >
-          all posts
-        </Button>
+        <Link href="/blog" _hover={{ textDecoration: 'none' }}>
+          <Button
+            variant="outline"
+            px={2}
+            size="md"
+            borderColor="gray.900"
+            _hover={{
+              backgroundColor: 'gray.300',
+            }}
+            leftIcon={<ArrowBackIcon w={4} h={4} m={0} p={0} />}
+          >
+            all posts
+          </Button>
+        </Link>
       </NextLink>
 
-      <Box align="center" py={4}>
-        <Heading pb={2} size="2xl">
-          {blogPost.title}
-        </Heading>
-
-        <Text fontSize="2xl" py={2}>
-          {blogPost.description}
-        </Text>
-        <Text fontSize="sm" color="gray.700" mt={2}>
-          published {format(new Date(blogPost.createdAt), 'd MMMM Y')}
-        </Text>
-        <Divider borderWidth={1} my={2} borderColor="gray.500" width="60%" />
-      </Box>
+      <BlogTitle
+        title={blogPost.title}
+        description={blogPost.description}
+        createdAt={blogPost.createdAt}
+      />
 
       <CommonStructuredText content={blogPost.content} />
     </Container>

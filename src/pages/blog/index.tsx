@@ -2,14 +2,7 @@ import { GetStaticProps } from 'next';
 
 import Head from 'next/head';
 
-import {
-  Heading,
-  Text,
-  Container,
-  VStack,
-  StackDivider,
-  Divider,
-} from '@chakra-ui/react';
+import { Heading, Text, Container, VStack, Divider } from '@chakra-ui/react';
 import { renderMetaTags } from 'react-datocms';
 
 import BlogCard from '~/components/blog/BlogCard';
@@ -53,11 +46,7 @@ const BlogPage: NextPageWithLayout<BlogPageProps> = ({
 
       <Divider borderColor="gray.400" mb={4} />
 
-      <VStack
-        spacing={4}
-        divider={<StackDivider borderColor="gray.400" />}
-        align="start"
-      >
+      <VStack spacing={4} align="start">
         {blogPosts.map((blogPost) => (
           <BlogCard
             title={blogPost.title}

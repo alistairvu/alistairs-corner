@@ -11,18 +11,24 @@ type BlogCardProps = {
 };
 
 const BlogCard = ({ title, description, slug, createdAt }: BlogCardProps) => (
-  <LinkBox as="article" p={1} w="100%">
-    <Heading size="lg">
+  <LinkBox
+    as="article"
+    p={4}
+    w="100%"
+    rounded="lg"
+    _hover={{ background: 'gray.100' }}
+  >
+    <Heading size="xl">
       <NextLink href={`/blog/${slug}`} passHref>
         <LinkOverlay>{title}</LinkOverlay>
       </NextLink>
     </Heading>
 
-    <Text fontSize="sm" color="gray.700" mt={2}>
+    <Text fontSize="lg">{description}</Text>
+
+    <Text fontSize="xs" color="gray.700">
       published {format(new Date(createdAt), 'd MMMM Y')}
     </Text>
-
-    <Text fontSize="lg">{description}</Text>
   </LinkBox>
 );
 
