@@ -21,7 +21,7 @@ import {
 } from 'datocms-structured-text-utils';
 import { StructuredText, Image as DatoImage } from 'react-datocms';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { atomOneDark } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
 import { isBlogImageRecord } from '~/lib/datocms_types';
 import bannerStyles from '~/styles/banner.module.css';
@@ -68,7 +68,7 @@ const CommonStructuredText = ({ content }: CommonStructuredTextProps) => (
               <SyntaxHighlighter
                 language={node.language}
                 style={atomOneDark}
-                customStyle={{ padding: '0.8rem' }}
+                customStyle={{ padding: '0.8rem', borderRadius: '0.5rem' }}
               >
                 {node.code}
               </SyntaxHighlighter>
