@@ -50,6 +50,7 @@ const BlogPostPage: NextPageWithLayout<BlogPostPageProps> = ({
         title={blogPost.title}
         description={blogPost.description}
         createdAt={blogPost.createdAt}
+        content={JSON.stringify(blogPost.content)}
       />
 
       <CommonStructuredText content={blogPost.content} />
