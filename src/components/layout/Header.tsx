@@ -6,7 +6,6 @@ import { Box, Fade, useBreakpointValue } from '@chakra-ui/react';
 import disableScroll from 'disable-scroll';
 
 import useHeader from '~/hooks/useHeader';
-import navStyles from '~/styles/header.module.css';
 
 import NarrowHeader from './NarrowHeader';
 import WideHeader from './WideHeader';
@@ -37,7 +36,15 @@ const Header = () => {
   }, [dispatch, router.events]);
 
   return (
-    <nav className={navStyles.nav} id="top-nav">
+    <Box
+      as="nav"
+      width="100%"
+      minHeight="3em"
+      position="fixed"
+      top="0"
+      zIndex="900"
+      id="top-nav"
+    >
       <Box display={{ base: 'none', md: 'block' }}>
         <WideHeader />
       </Box>
@@ -58,7 +65,7 @@ const Header = () => {
           />
         </Fade>
       </Box>
-    </nav>
+    </Box>
   );
 };
 

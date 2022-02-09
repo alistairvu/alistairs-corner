@@ -19,8 +19,9 @@ import {
   isList,
   isListItem,
 } from 'datocms-structured-text-utils';
-import { CopyBlock, atomOneDark } from 'react-code-blocks';
 import { StructuredText, Image as DatoImage } from 'react-datocms';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 import { isBlogImageRecord } from '~/lib/datocms_types';
 import bannerStyles from '~/styles/banner.module.css';
@@ -47,7 +48,7 @@ const CommonStructuredText = ({ content }: CommonStructuredTextProps) => (
           <Heading
             size={SIZE_MAPPING[node.level]}
             key={key}
-            my={(6 - node.level) * 2}
+            my={6 - node.level}
           >
             {children}
           </Heading>
@@ -64,13 +65,13 @@ const CommonStructuredText = ({ content }: CommonStructuredTextProps) => (
         if (node.language) {
           return (
             <Box my={2} key={key}>
-              <CopyBlock
-                text={node.code}
+              <SyntaxHighlighter
                 language={node.language}
-                theme={atomOneDark}
-                customStyle={{ padding: '0.5rem' }}
-                wrapLongLines={false}
-              />
+                style={atomOneDark}
+                customStyle={{ padding: '0.8rem' }}
+              >
+                {node.code}
+              </SyntaxHighlighter>
             </Box>
           );
         }
