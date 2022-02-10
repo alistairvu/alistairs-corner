@@ -10,17 +10,6 @@ import request from '~/lib/datocms';
 import { metaTagsFragment } from '~/lib/datocms_fragments';
 import { NextPageWithLayout } from '~/lib/next_types';
 
-type BlogPostShortInfo = {
-  title: string;
-  description: string;
-  id: string;
-  slug: string;
-  createdAt: string;
-  content: {
-    value: any;
-  };
-};
-
 type BlogPageProps = {
   site: Site;
   blogPage: {
@@ -58,6 +47,7 @@ const BlogPage: NextPageWithLayout<BlogPageProps> = ({
             createdAt={blogPost.createdAt}
             key={blogPost.id}
             content={JSON.stringify(blogPost.content)}
+            tags={blogPost.tags}
           />
         ))}
       </VStack>
@@ -77,6 +67,10 @@ export const getStaticProps: GetStaticProps = async () => {
         content {
           value
         }
+        tags {
+          id
+          title
+        }
       }
       blogPage {
         seo: _seoMetaTags {
@@ -84,6 +78,7 @@ export const getStaticProps: GetStaticProps = async () => {
         }
         heading
         description
+        
       }
       site: _site {
         favicon: faviconMetaTags {

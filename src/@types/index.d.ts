@@ -121,6 +121,11 @@ type ErrorPage = {
   seo: SEOAttribute[];
 };
 
+type BlogTag = {
+  id: string;
+  title: string;
+};
+
 type BlogPost = {
   content: {
     value: any;
@@ -130,6 +135,7 @@ type BlogPost = {
   title: string;
   createdAt: string;
   blocks: any;
+  tags: BlogTag[];
 };
 
 type BlogRecord = {
@@ -153,3 +159,15 @@ interface BlogImageRecord extends BlogRecord {
   };
   caption?: string;
 }
+
+type BlogPostShortInfo = {
+  title: string;
+  description: string;
+  id: string;
+  slug: string;
+  createdAt: string;
+  content: {
+    value: any;
+  };
+  tags: BlogTag[];
+};

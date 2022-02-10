@@ -14,7 +14,9 @@ const AboutEducation = ({ data }: AboutEducationProps) => (
     <Text fontSize="lg">{data.program}</Text>
     <Text color="gray.600">{data.timespan}</Text>
 
-    <CommonMarkdown markdown={data.description} />
+    <Box fontSize="lg">
+      <CommonMarkdown markdown={data.description} />
+    </Box>
   </Box>
 );
 

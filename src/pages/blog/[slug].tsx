@@ -51,6 +51,7 @@ const BlogPostPage: NextPageWithLayout<BlogPostPageProps> = ({
         description={blogPost.description}
         createdAt={blogPost.createdAt}
         content={JSON.stringify(blogPost.content)}
+        tags={blogPost.tags}
       />
 
       <CommonStructuredText content={blogPost.content} />
@@ -101,6 +102,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
             }
           }
         }
+      }
+      tags {
+        id
+        title
       }
     }
     site: _site {

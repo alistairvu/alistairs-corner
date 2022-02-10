@@ -1,8 +1,12 @@
 import NextLink from 'next/link';
 
-import { LinkBox, Heading, LinkOverlay, Text } from '@chakra-ui/react';
+import { LinkBox, Heading, LinkOverlay, Text, Box } from '@chakra-ui/react';
 import { format } from 'date-fns';
 import readingTime from 'reading-time';
+
+import CommonMarkdown from '../common/CommonMarkdown';
+
+import BlogTag from './BlogTag';
 
 type BlogCardProps = {
   title: string;
@@ -10,6 +14,7 @@ type BlogCardProps = {
   slug: string;
   createdAt: string;
   content: string;
+  tags: BlogTag[];
 };
 
 const BlogCard = ({
@@ -18,6 +23,7 @@ const BlogCard = ({
   slug,
   createdAt,
   content,
+  tags,
 }: BlogCardProps) => (
   <LinkBox
     as="article"
@@ -32,12 +38,20 @@ const BlogCard = ({
       </NextLink>
     </Heading>
 
-    <Text fontSize="lg">{description}</Text>
+    <Box fontSize="lg">
+      <CommonMarkdown markdown={description} />
+    </Box>
 
     <Text fontSize="xs" color="gray.700">
       published {format(new Date(createdAt), 'd MMMM Y')} ·{' '}
       {readingTime(content).text}
     </Text>
+
+    <Box py={1}>
+      {tags.map(({ id, title: tagTitle }) => (
+        <BlogTag key={id} content={tagTitle} />
+      ))}
+    </Box>
   </LinkBox>
 );
 

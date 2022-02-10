@@ -11,7 +11,10 @@ const AboutEducation = ({ data }: AboutSkillProps) => (
     <Heading size="md" mb={1} fontWeight="600">
       {data.title}
     </Heading>
-    <CommonMarkdown markdown={data.detail} />
+
+    <Box fontSize="lg">
+      <CommonMarkdown markdown={data.detail} />
+    </Box>
   </Box>
 );
 

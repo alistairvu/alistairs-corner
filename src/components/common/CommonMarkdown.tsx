@@ -5,11 +5,7 @@ import ReactMarkdown from 'react-markdown';
 const newTheme = {
   p: (props: any) => {
     const { children } = props;
-    return (
-      <Text mb={2} fontSize="12px">
-        {children}
-      </Text>
-    );
+    return <Text mb={2}>{children}</Text>;
   },
 
   ul: (props: any) => {
