@@ -8,12 +8,13 @@ type BlogTagProps = {
 
 const BlogTag = ({ content }: BlogTagProps) => (
   <NextLink href={`/tag/${content}`} passHref>
-    <Link href={`/tag/${content}`} mr={1} mb={1}>
+    <Link href={`/tag/${content}`} mr={1}>
       <Tag
         color="white"
         backgroundColor="gray.700"
         fontWeight="semibold"
         _hover={{ textDecoration: 'underline' }}
+        mb={1}
       >
         #{content}
       </Tag>
