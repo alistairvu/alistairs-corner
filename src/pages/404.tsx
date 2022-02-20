@@ -46,7 +46,7 @@ export const getStaticProps: GetStaticProps = async () => {
     preview: process.env.NODE_ENV === 'development',
   });
 
-  return { props: { notFoundPage, site }, revalidate: 12 };
+  return { props: { notFoundPage, site } };
 };
 
 export default NotFound;

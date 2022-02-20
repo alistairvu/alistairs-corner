@@ -7,8 +7,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   try {
     await Promise.all([
-      res.unstable_revalidate('/'),
-      res.unstable_revalidate('/showcase'),
+      res.unstable_revalidate('/404'),
+      res.unstable_revalidate('/500'),
     ]);
     return res.json({ revalidated: true });
   } catch (err) {
