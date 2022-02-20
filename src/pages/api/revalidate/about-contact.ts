@@ -6,7 +6,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   try {
-    await res.unstable_revalidate('/about');
+    await Promise.all([
+      res.unstable_revalidate('/about'),
+      res.unstable_revalidate('/contact'),
+    ]);
     return res.json({ revalidated: true });
   } catch (err) {
     return res.status(500).send('Error revalidating');
