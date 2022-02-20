@@ -184,7 +184,6 @@ type GuestbookEntry = {
   message: string;
   timestamp: string;
   id: string;
-  toDelete: boolean;
 };
 
 type GuestbookPage = {

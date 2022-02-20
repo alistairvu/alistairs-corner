@@ -9,9 +9,7 @@ const GuestbookEntry = ({ data }: GuestbookEntryProps) => (
   <Box my={8}>
     <Text fontSize="xl">{data.message}</Text>
     <Text color="gray.600">{data.name}</Text>
-    <Text color="gray.600">
-      {format(new Date(data.timestamp), 'd MMMM Y, kk:mm')}
-    </Text>
+    <Text color="gray.600">{format(new Date(data.timestamp), 'd MMMM Y')}</Text>
   </Box>
 );
 
