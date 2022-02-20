@@ -6,9 +6,9 @@ import { Heading, Text, Container, VStack, Divider } from '@chakra-ui/react';
 import { renderMetaTags } from 'react-datocms';
 
 import BlogCard from '~/components/blog/BlogCard';
-import request from '~/lib/datocms';
-import { metaTagsFragment } from '~/lib/datocms_fragments';
-import { NextPageWithLayout } from '~/lib/next_types';
+import request from '~/libs/datocms';
+import { metaTagsFragment } from '~/libs/datocmsFragments';
+import { NextPageWithLayout } from '~/libs/nextTypes';
 
 type BlogPageProps = {
   site: Site;

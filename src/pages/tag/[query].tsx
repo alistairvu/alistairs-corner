@@ -6,8 +6,8 @@ import { Heading, Container, VStack } from '@chakra-ui/react';
 import { renderMetaTags } from 'react-datocms';
 
 import BlogCard from '~/components/blog/BlogCard';
-import request from '~/lib/datocms';
-import { metaTagsFragment } from '~/lib/datocms_fragments';
+import request from '~/libs/datocms';
+import { metaTagsFragment } from '~/libs/datocmsFragments';
 
 type TaggedPostsProps = {
   posts: BlogPostShortInfo[];

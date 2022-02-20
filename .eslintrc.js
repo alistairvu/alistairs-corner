@@ -25,6 +25,7 @@ module.exports = {
       { namedComponents: 'arrow-function' },
     ],
     'react/jsx-props-no-spreading': 'off',
+    'import/prefer-default-export': 'off',
     'import/extensions': [
       'error',
       'ignorePackages',

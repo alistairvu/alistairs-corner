@@ -5,9 +5,9 @@ import Head from 'next/head';
 import { Heading, Text, Container } from '@chakra-ui/react';
 import { renderMetaTags } from 'react-datocms';
 
-import request from '~/lib/datocms';
-import { metaTagsFragment } from '~/lib/datocms_fragments';
-import { NextPageWithLayout } from '~/lib/next_types';
+import request from '~/libs/datocms';
+import { metaTagsFragment } from '~/libs/datocmsFragments';
+import { NextPageWithLayout } from '~/libs/nextTypes';
 
 const NotFound: NextPageWithLayout<{
   notFoundPage: NotFoundPage;

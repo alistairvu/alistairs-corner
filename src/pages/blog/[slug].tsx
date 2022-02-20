@@ -9,12 +9,12 @@ import { renderMetaTags } from 'react-datocms';
 
 import BlogTitle from '~/components/blog/BlogTitle';
 import CommonStructuredText from '~/components/common/CommonStructuredText';
-import request from '~/lib/datocms';
+import request from '~/libs/datocms';
 import {
   responsiveImageFragment,
   metaTagsFragment,
-} from '~/lib/datocms_fragments';
-import { NextPageWithLayout } from '~/lib/next_types';
+} from '~/libs/datocmsFragments';
+import { NextPageWithLayout } from '~/libs/nextTypes';
 
 type BlogPostPageProps = {
   blogPost: BlogPost;

@@ -23,7 +23,7 @@ import { StructuredText, Image as DatoImage } from 'react-datocms';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
-import { isBlogImageRecord } from '~/lib/datocms_types';
+import { isBlogImageRecord } from '~/libs/datocmsTypes';
 import bannerStyles from '~/styles/banner.module.css';
 
 type CommonStructuredTextProps = {

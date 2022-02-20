@@ -18,6 +18,6 @@
     "baseUrl": ".",
     "paths": { "~/*": ["./src/*"] }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/lib/ga.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/libs/ga.js"],
   "exclude": ["node_modules"]
 }

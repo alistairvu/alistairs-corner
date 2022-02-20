@@ -6,9 +6,9 @@ import { Box, Container, Divider, Heading, Text } from '@chakra-ui/react';
 import { renderMetaTags } from 'react-datocms';
 
 import { AboutEducation, AboutSkill } from '~/components/about';
-import request from '~/lib/datocms';
-import { metaTagsFragment } from '~/lib/datocms_fragments';
-import type { NextPageWithLayout } from '~/lib/next_types';
+import request from '~/libs/datocms';
+import { metaTagsFragment } from '~/libs/datocmsFragments';
+import type { NextPageWithLayout } from '~/libs/nextTypes';
 
 const AboutPage: NextPageWithLayout<{ aboutPage: AboutPage; site: Site }> = ({
   aboutPage,

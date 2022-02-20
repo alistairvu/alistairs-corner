@@ -9,7 +9,7 @@ import '@fontsource/source-serif-pro/700.css';
 import mixpanel from 'mixpanel-browser';
 
 import Layout from '~/components/layout/Layout';
-import type { AppPropsWithLayout } from '~/lib/next_types';
+import type { AppPropsWithLayout } from '~/libs/nextTypes';
 
 const theme = extendTheme({
   components: {

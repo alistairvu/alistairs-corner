@@ -4,14 +4,14 @@ import Head from 'next/head';
 
 import { renderMetaTags } from 'react-datocms';
 
+import HomeBanner from '~/components/home/HomeBanner';
+import HomeIntro from '~/components/home/HomeIntro';
+import request from '~/libs/datocms';
 import {
   responsiveImageFragment,
   metaTagsFragment,
-} from '../lib/datocms_fragments';
-import HomeBanner from '~/components/home/HomeBanner';
-import HomeIntro from '~/components/home/HomeIntro';
-import request from '~/lib/datocms';
-import { NextPageWithLayout } from '~/lib/next_types';
+} from '~/libs/datocmsFragments';
+import { NextPageWithLayout } from '~/libs/nextTypes';
 
 const Home: NextPageWithLayout<{ homePage: HomePage; site: Site }> = ({
   homePage,

@@ -8,11 +8,11 @@ import { renderMetaTags } from 'react-datocms';
 import {
   metaTagsFragment,
   responsiveImageFragment,
-} from '../lib/datocms_fragments';
+} from '../libs/datocmsFragments';
 import CommonMasonry from '~/components/common/CommonMasonry';
 import ProjectCard from '~/components/project/ProjectCard';
-import request from '~/lib/datocms';
-import { NextPageWithLayout } from '~/lib/next_types';
+import request from '~/libs/datocms';
+import { NextPageWithLayout } from '~/libs/nextTypes';
 
 const Showcase: NextPageWithLayout<{
   projectPage: ProjectPage;

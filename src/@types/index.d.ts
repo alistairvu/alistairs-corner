@@ -171,3 +171,27 @@ type BlogPostShortInfo = {
   };
   tags: BlogTag[];
 };
+
+type ContactEntry = {
+  name: string;
+  email: string;
+  message: string;
+};
+
+type GuestbookEntry = {
+  name: string;
+  email: string;
+  message: string;
+  timestamp: string;
+  id: string;
+};
+
+type GuestbookPage = {
+  heading: string;
+  description: string;
+  successHeading: string;
+  successDescription: string;
+  errorHeading: string;
+  errorDescription: string;
+  seo: SEOAttribute[];
+};
