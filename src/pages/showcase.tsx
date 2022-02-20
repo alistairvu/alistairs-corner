@@ -71,7 +71,7 @@ export const getStaticProps: GetStaticProps = async () => {
     preview: process.env.NODE_ENV === 'development',
   });
 
-  return { props: { projectPage, site }, revalidate: 12 };
+  return { props: { projectPage, site } };
 };
 
 export default Showcase;
