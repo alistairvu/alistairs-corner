@@ -16,6 +16,10 @@ const SITE_MAP: SiteItem[] = [
     title: 'showcase',
   },
   {
+    link: '/guestbook',
+    title: 'guestbook',
+  },
+  {
     link: '/contact',
     title: 'contact',
   },
