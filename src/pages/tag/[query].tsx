@@ -139,7 +139,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       title: query,
       site,
     },
-    revalidate: 12,
   };
 };
 

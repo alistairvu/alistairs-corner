@@ -89,7 +89,7 @@ export const getStaticProps: GetStaticProps = async () => {
     ${metaTagsFragment}`,
   });
 
-  return { props: { ...data }, revalidate: 12 };
+  return { props: { ...data } };
 };
 
 export default BlogPage;
