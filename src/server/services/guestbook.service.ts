@@ -39,7 +39,9 @@ export default class GuestbookService {
       sort: [{ field: 'timestamp', direction: AirtableDirection.Descending }],
     });
 
-    const data = records.map(({ id, fields }) => ({ ...fields, id }));
+    const data = records
+      .map(({ id, fields }) => ({ ...fields, id }))
+      .filter((record) => !record.toDelete);
 
     return data;
   }
