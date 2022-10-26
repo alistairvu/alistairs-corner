@@ -1,6 +1,6 @@
 describe('Contact', () => {
   beforeEach(() => {
-    cy.visit('/contact');
+    cy.visit('https://alistairs-corner.xyz/contact');
   });
 
   it('should navigate to the contact page', () => {
